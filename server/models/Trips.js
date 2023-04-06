@@ -17,12 +17,6 @@ const tripsSchema = new Schema({
     required: true,
   },
 
-  location: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Location",
-    },
-  ],
   lodging: [
     {
       type: Schema.Types.ObjectId,

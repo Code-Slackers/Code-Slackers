@@ -50,6 +50,12 @@ const locationSchema = new Schema({
       ref: "Profile",
     },
   ],
+  trips: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Trips",
+    },
+  ],
   images: [
     {
       type: String,

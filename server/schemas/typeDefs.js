@@ -73,6 +73,20 @@ const typeDefs = gql`
     thingsToDo: [ThingsToDo]
   }
 
+  type Location {
+    _id: ID
+    profileId: String!
+    city: String!
+    state: String!
+    lodging: [Lodging]
+    food: [Food]
+    thingsToDo: [ThingsToDo]
+    transportation: [Transportation]
+    visitors: [Profile]
+    trips: [Trip]
+    images: [String]
+  }
+
   type Auth {
     token: ID!
     profile: Profile
@@ -83,9 +97,15 @@ const typeDefs = gql`
     profile(profileId: ID!): Profile
     me: Profile
     food: [Food]
+    oneFood(foodId: ID!): Food
     transportation: [Transportation]
+    oneTransportation(transportationId: ID!): Transportation
     lodging: [Lodging]
+    oneLodging(lodgingId: ID!): Lodging
     thingsToDo: [ThingsToDo]
+    oneThingsToDo(thingsToDoId: ID!): ThingsToDo
+    locations: [Location]
+    location(locationId: ID!): Location
     trips: [Trip]!
     trip(tripId: ID!): Trip
   }
@@ -93,12 +113,18 @@ const typeDefs = gql`
   type Mutation {
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addTrip(profileId: ID!, dateOfTrip: String!): Trip
-    updateTrip(tripId: ID!, location: [ID], lodging: [ID], food: [ID], thingsToDo: [ID], transportation: [ID]): Trip
-    addFood(profileId: ID!, city: String!, state: String!, address: String!, phone: String, category: String!, cost: Int!, images: [String], reviews: [String], starRating: Int): Food
-    addLodging(profileId: ID!, city: String!, state: String!, address: String!, phone: String, category: String!, cost: Int!, amenities: [String], images: [String], reviews: [String], starRating: Int): Lodging
-    addTransportation(profileId: ID!, city: String!, state: String!, address: String, phone: String, category: String!, amenities: [String]): Transportation
-    addThingsToDo(profileId: ID!, city: String!, state: String!, address: String!, phone: String, category: String!, cost: Int!, images: [String], reviews: [String], starRating: Int): ThingsToDo
+    addTrip(locationId: ID!, profileId: ID!, dateOfTrip: String!): Trip
+    addLocation(profileId: ID!, city: String!, state: String!): Location
+    updateLocation(locationId: ID!, visitors: [ID], images: [String]): Location
+    updateTrip(tripId: ID!, lodging: [ID], food: [ID], thingsToDo: [ID], transportation: [ID]): Trip
+    addFood(locationId: ID!, profileId: ID!, city: String!, state: String!, address: String!, phone: String, category: String!, cost: Int!, images: [String], reviews: [String], starRating: Int): Food
+    updateFood(foodId: ID!, phone: String, images: [String], reviews: [String], starRating: Int): Food
+    addLodging(locationId: ID!, profileId: ID!, city: String!, state: String!, address: String!, phone: String, category: String!, cost: Int!, amenities: [String], images: [String], reviews: [String], starRating: Int): Lodging
+    updateLodging(lodgingId: ID!, phone: String, amenities: [String], images: [String], reviews: [String], starRating: Int): Lodging
+    addTransportation(locationId: ID!, profileId: ID!, city: String!, state: String!, address: String, phone: String, category: String!, amenities: [String]): Transportation
+    updateTransportation(transportationId: ID!, address: String, phone: String, amenities: [String]): Transportation
+    addThingsToDo(locationId: ID!, profileId: ID!, city: String!, state: String!, address: String!, phone: String, category: String!, cost: Int!, images: [String], reviews: [String], starRating: Int): ThingsToDo
+    updateThingsToDo(thingsToDoId: ID!, phone: String, images: [String], reviews: [String], starRating: Int): ThingsToDo
     removeProfile: Profile
   }
 `;
