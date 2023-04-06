@@ -16,7 +16,6 @@ const thingsToDoSchema = new Schema({
     type: String,
     required: true,
   },
-  // saved book id from GoogleBooks
   address: {
     type: String,
     required: true,
