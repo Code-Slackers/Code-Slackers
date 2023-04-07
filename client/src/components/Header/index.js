@@ -25,7 +25,7 @@ const Header = () => {
               {/* <Link className="px-4 py-2 text-lg bg-secondary text-white rounded-md m-2" to="/me">
                 View My Profile
               </Link> */}
-              <button className="px-4 py-1 text-lg bg-secondary rounded-md m-2" onClick={logout}>
+              <button className="px-4 py-1 text-lg bg-secondary rounded-md m-2 hover:bg-white" onClick={logout}>
                 Logout
               </button>
             </>
@@ -34,7 +34,7 @@ const Header = () => {
               {/* <Link className="px-4 py-1 text-lg bg-secondary text-white rounded-md m-2" to="/login">
                 Login
               </Link> */}
-              <Link className="px-4 py-1 text-lg bg-secondary rounded-md m-2" to="/signup">
+              <Link className="px-4 py-1 text-lg bg-secondary rounded-md m-2 hover:bg-white" to="/signup">
                 Signup
               </Link>
             </>

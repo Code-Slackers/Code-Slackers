@@ -35,16 +35,20 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className=" flex flex-col justify-start min-h-screen">
           <Header />
-          <div className="container">
+          <div className="flex flex-1 justify-center">
+            <main className="w-8/12 mt-4">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<Login />} />
+              {/* <Route path="/login" element={<Login />} /> */}
               <Route path="/signup" element={<Signup />} />
             </Routes>
+            </main>
           </div>
-          <Footer />
+          <footer className="bg-primary ">
+            <Footer />
+          </footer>
         </div>
       </Router>
     </ApolloProvider>
