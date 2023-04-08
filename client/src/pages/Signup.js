@@ -41,20 +41,20 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
+    <div className='h-full grid xl:grid-cols-2 items-center gap-6 pt-10'>
+      <div className='shadow border rounded-3xl'>
+        <div className='card-body'>
+          <h1 className='text-neutral mb-10'>Signup</h1>
+          {data ? (
+            <p className='text-center'>
+              Success! You may now head{' '}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <>
+              <form className='flex flex-col gap-3' onSubmit={handleFormSubmit} >
                 <input
-                  className="form-input"
+                  className="input input-primary input-lg"
                   placeholder="Your username"
                   name="name"
                   type="text"
@@ -62,7 +62,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
+                  className="input input-primary input-lg"
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -70,7 +70,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
+                  className="input input-primary input-lg"
                   placeholder="******"
                   name="password"
                   type="password"
@@ -78,24 +78,26 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-info"
+                  className="btn btn-primary input-lg text-white"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
                   Submit
                 </button>
               </form>
-            )}
-
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div>
+              {(error) && (
+                <div className="alert alert-error text-white">
+                  {error?.message}
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
-    </main>
+      <div className='hidden xl:block'>
+        <img src='/trip_re.svg' className='max-w-[100%]' />
+      </div>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ const secret = 'mysecretssshhhhhhh';
 const expiration = '2h';
 
 module.exports = {
-  authMiddleware: function (req) {
+  authMiddleware: function ({ req }) {
     // allows token to be sent via req.body, req.query, or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
 
@@ -26,7 +26,7 @@ module.exports = {
     }
 
     // return the request object so it can be passed to the resolver as `context`
-    return req.user;
+    return req;
   },
   signToken: function ({ email, name, _id }) {
     const payload = { email, name, _id };
