@@ -39,11 +39,12 @@ function App() {
           <Header />
           <div className="flex flex-1 justify-center">
             <main className="w-8/12 mt-4">
-            <Routes>
-              <Route path="/" element={<Login />} />
-              {/* <Route path="/login" element={<Login />} /> */}
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
+              <Routes>
+                <Route path="/" element={<Login />} />
+                {/* <Route path="/login" element={<Login />} /> */}
+                <Route path="/test" element={<Home />} />
+                <Route path="/signup" element={<Signup />} />
+              </Routes>
             </main>
           </div>
           <footer className="bg-primary ">
