@@ -1,10 +1,8 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-import ProfileList from "../components/ProfileList";
-
+import AddTripForm from "../components/AddTripForm";
 import { QUERY_PROFILES } from "../utils/queries";
-import AddLocationForm from "../components/AddLocationForm";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_PROFILES);
@@ -17,7 +15,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <AddLocationForm />
+            <AddTripForm />
             // <ProfileList
             //   profiles={profiles}
             //   title="Here's the current roster of friends..."
