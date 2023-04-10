@@ -43,3 +43,11 @@ export const ADD_TRIP = gql`
     }
   }
 `;
+
+export const ADD_FOOD = gql`
+  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String) {
+    addFood(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone) {
+      _id
+    }
+  }
+`;
