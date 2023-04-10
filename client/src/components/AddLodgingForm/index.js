@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
-import { ADD_FOOD } from "../../utils/mutations";
+import { ADD_LODGING } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
-const AddFoodForm = ({ locations }) => {
+const AddLodgingForm = ({ locations }) => {
   const [formState, setFormState] = useState({ locationId: "", city: "", state: "", address: "", phone: "", category: "", cost: {} });
-  const [addFood, { error, data }] = useMutation(ADD_FOOD);
+  const [addLodging, { error, data }] = useMutation(ADD_LODGING);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -26,8 +26,7 @@ const AddFoodForm = ({ locations }) => {
     console.log(formState);
     try {
       const costInt = parseInt(formState.cost);
-      console.log(costInt);
-      const { data } = await addFood({
+      const { data } = await addLodging({
         variables: { ...formState, cost: costInt },
       });
       console.log(data);
@@ -49,7 +48,7 @@ const AddFoodForm = ({ locations }) => {
 
   return (
     <div>
-      <h4>Add your NEW Food.</h4>
+      <h4>Add your NEW Lodging.</h4>
 
       {Auth.loggedIn() ? (
         <form className="flex flex-col mb-4 min-w-full" onSubmit={handleFormSubmit}>
@@ -120,16 +119,20 @@ const AddFoodForm = ({ locations }) => {
           <input className="w-full mb-2 p-2" placeholder="phone" name="phone" type="string" value={formState.phone} onChange={handleChange} />
           <select className="w-full mb-2 p-2" name="category" type="string" value={formState.category} onChange={handleChange}>
             <option value="">Select a category</option>
-            <option value="Fine Dining">Fine Dining</option>
-            <option value="Casual Dining">Casual Dining</option>
-            <option value="Fast Casual">Fast Casual</option>
-            <option value="Virtual Restaurant">Virtual Restaurant</option>
-            <option value="Family Style">Family Style</option>
-            <option value="Fast Food">Fast Food</option>
-            <option value="Food Truck">Food Truck</option>
-            <option value="Cafe">Cafe</option>
-            <option value="Bar/Pub">Bar/Pub</option>
-            <option value="Club">Club</option>
+            <option value="Hotel">Hotel</option>
+            <option value="Motel">Motel</option>
+            <option value="Bed and Breakfast">Bed and Breakfast</option>
+            <option value="Cabin">Cabin</option>
+            <option value="Campground">Campground</option>
+            <option value="RV Park">RV Park</option>
+            <option value="Hostel">Hostel</option>
+            <option value="Resort">Resort</option>
+            <option value="Vacation Rental">Vacation Rental</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Condo">Condo</option>
+            <option value="House">House</option>
+            <option value="Townhouse">Townhouse</option>
+            <option value="Dorm">Dorm</option>
             <option value="Other">Other</option>
           </select>
           <select className="w-full mb-2 p-2" name="cost" type="number" value={formState.cost} onChange={handleChange}>
@@ -147,7 +150,7 @@ const AddFoodForm = ({ locations }) => {
         </form>
       ) : (
         <p>
-          You need to be logged in to add food. Please <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          You need to be logged in to add Lodging. Please <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
       {error && <div className="col-12 my-3 bg-danger text-white p-3">{error.message}</div>}
@@ -155,4 +158,4 @@ const AddFoodForm = ({ locations }) => {
   );
 };
 
-export default AddFoodForm;
+export default AddLodgingForm;
