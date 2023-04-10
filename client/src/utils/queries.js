@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_PROFILES = gql`
   query allProfiles {
@@ -26,6 +26,17 @@ export const QUERY_ME = gql`
       _id
       name
       skills
+    }
+  }
+`;
+
+export const QUERY_LOCATIONS = gql`
+  query Query {
+    locations {
+      _id
+      city
+      state
+      images
     }
   }
 `;

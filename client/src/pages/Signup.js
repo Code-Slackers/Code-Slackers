@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { useMutation } from '@apollo/client';
 import { ADD_PROFILE } from '../utils/mutations';
-
 import Auth from '../utils/auth';
+import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid'
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -54,7 +53,7 @@ const Signup = () => {
             <>
               <form className='flex flex-col gap-3' onSubmit={handleFormSubmit} >
                 <input
-                  className="input input-primary input-lg"
+                  className="input input-primary"
                   placeholder="Your username"
                   name="name"
                   type="text"
@@ -62,7 +61,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className="input input-primary input-lg"
+                  className="input input-primary"
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -70,7 +69,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className="input input-primary input-lg"
+                  className="input input-primary"
                   placeholder="******"
                   name="password"
                   type="password"
@@ -78,11 +77,12 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-primary input-lg text-white"
+                  className="btn btn-primary text-white relative"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
-                  Submit
+                  <ArrowRightOnRectangleIcon className='w-7 h-7 opacity-60 absolute top-[50%] translate-y-[-50%] left-4' />
+                  Signup
                 </button>
               </form>
               {(error) && (

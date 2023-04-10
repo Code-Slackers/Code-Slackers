@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-
 import Auth from '../utils/auth';
+import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid'
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -55,7 +55,7 @@ const Login = (props) => {
             <>
               <form className='flex flex-col gap-3' onSubmit={handleFormSubmit}>
                 <input
-                  className="input input-primary input-lg"
+                  className="input input-primary"
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -63,7 +63,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <input
-                  className="input input-primary input-lg"
+                  className="input input-primary"
                   placeholder="******"
                   name="password"
                   type="password"
@@ -71,10 +71,11 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-primary text-white input-lg"
+                  className="btn btn-primary text-white relative"
                   type="submit"
                 >
-                  Submit
+                  <ArrowRightOnRectangleIcon className='w-7 h-7 opacity-60 absolute top-[50%] translate-y-[-50%] left-4' />
+                  Login
                 </button>
               </form>
               {(error) && (

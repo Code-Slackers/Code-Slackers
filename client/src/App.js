@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import AddTrip from "./pages/AddTrip";
 
 
 const httpLink = createHttpLink({
@@ -39,11 +40,12 @@ function App() {
         <div className=" flex flex-col justify-start min-h-screen">
           <Header />
           <div className="flex flex-1">
-            <main className="container mx-auto">
+            <main className="container mx-auto px-2">
               <Routes>
                 {
                   Auth.loggedIn() ? <>
                     <Route path="/" element={<Home />} />
+                    <Route path='/add_trip' element={<AddTrip />} />
                   </>
                     : <>
                       <Route path="/" element={<Login />} />
@@ -54,7 +56,7 @@ function App() {
               </Routes>
             </main>
           </div>
-          <footer className="bg-primary ">
+          <footer className="bg-primary">
             <Footer />
           </footer>
         </div>
