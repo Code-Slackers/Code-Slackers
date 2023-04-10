@@ -78,3 +78,16 @@ export const ADD_TRANSPORTATION = gql`
     }
   }
 `;
+
+export const ADD_THINGS_TO_DO = gql`
+  mutation AddThingsToDo($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String) {
+    addThingsToDo(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone) {
+      _id
+      address
+      category
+      city
+      state
+      cost
+    }
+  }
+`;
