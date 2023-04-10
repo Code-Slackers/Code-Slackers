@@ -66,3 +66,15 @@ export const ADD_LODGING = gql`
     }
   }
 `;
+
+export const ADD_TRANSPORTATION = gql`
+  mutation AddTransportation($locationId: ID!, $city: String!, $state: String!, $category: String!, $address: String, $phone: String) {
+    addTransportation(locationId: $locationId, city: $city, state: $state, category: $category, address: $address, phone: $phone) {
+      _id
+      city
+      profileId
+      category
+      state
+    }
+  }
+`;
