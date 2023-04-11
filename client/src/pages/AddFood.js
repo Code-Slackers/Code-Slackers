@@ -2,6 +2,7 @@ import React from "react";
 import AddFoodForm from "../components/AddFoodForm";
 import { useQuery } from "@apollo/client";
 import { QUERY_LOCATIONS } from "../utils/queries";
+import CloudinaryUploadWidget from "../components/CloudinaryUploadWidget";
 
 const AddFood = () => {
   const { loading, data } = useQuery(QUERY_LOCATIONS);
@@ -11,6 +12,7 @@ const AddFood = () => {
     <main>
       <div className="flex-row justify-center">
         <div className="col-12 col-md-10 my-3">{loading ? <div>Loading...</div> : <AddFoodForm locations={locations} />}</div>
+        <div className="col-12 col-md-10 my-3">{loading ? <div>Loading...</div> : <CloudinaryUploadWidget />}</div>
       </div>
     </main>
   );
