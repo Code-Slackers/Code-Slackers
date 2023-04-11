@@ -48,11 +48,13 @@ const AddLodgingForm = ({ locations }) => {
 
   return (
     <div>
-      <h4>Add your NEW Lodging.</h4>
+     <h2 className="mb-5 text-center text-primary">Add your NEW Lodging</h2>
 
       {Auth.loggedIn() ? (
-        <form className="flex flex-col mb-4 min-w-full" onSubmit={handleFormSubmit}>
-          <select className="w-full mb-2 p-2" name="locationId" type="string" value={formState.locationId} onChange={handleChange}>
+        <div className='card border max-w-[40rem] mx-auto'>
+        <form className="card-body" onSubmit={handleFormSubmit}>
+        <div className="flex flex-col gap-4">
+          <select className="select select-primary" name="locationId" type="string" value={formState.locationId} onChange={handleChange}>
             <option value="">Select a Location</option>
             {locations &&
               locations.map((location) => (
@@ -61,9 +63,9 @@ const AddLodgingForm = ({ locations }) => {
                 </option>
               ))}
           </select>
-          <input className="w-full mb-2 p-2" placeholder="address" name="address" type="string" value={formState.address} onChange={handleChange} />
-          <input className="w-full mb-2 p-2" placeholder="City" name="city" type="string" value={formState.city} onChange={handleChange} />
-          <select className="w-full mb-2 p-2" name="state" type="string" value={formState.state} onChange={handleChange}>
+          <input className="input input-primary" placeholder="address" name="address" type="string" value={formState.address} onChange={handleChange} />
+          <input className="input input-primary" placeholder="City" name="city" type="string" value={formState.city} onChange={handleChange} />
+          <select className="select select-primary" name="state" type="string" value={formState.state} onChange={handleChange}>
             <option value="">Select a State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -116,8 +118,8 @@ const AddLodgingForm = ({ locations }) => {
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
           </select>
-          <input className="w-full mb-2 p-2" placeholder="phone" name="phone" type="string" value={formState.phone} onChange={handleChange} />
-          <select className="w-full mb-2 p-2" name="category" type="string" value={formState.category} onChange={handleChange}>
+          <input className="input input-primary" placeholder="phone" name="phone" type="string" value={formState.phone} onChange={handleChange} />
+          <select className="select select-primary" name="category" type="string" value={formState.category} onChange={handleChange}>
             <option value="">Select a category</option>
             <option value="Hotel">Hotel</option>
             <option value="Motel">Motel</option>
@@ -135,7 +137,7 @@ const AddLodgingForm = ({ locations }) => {
             <option value="Dorm">Dorm</option>
             <option value="Other">Other</option>
           </select>
-          <select className="w-full mb-2 p-2" name="cost" type="number" value={formState.cost} onChange={handleChange}>
+          <select className="select select-primary" name="cost" type="number" value={formState.cost} onChange={handleChange}>
             <option>How would you Rate Cost</option>
 
             <option value={1}>1</option>
@@ -144,16 +146,18 @@ const AddLodgingForm = ({ locations }) => {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-          <button className="px-4 py-1 text-lg bg-primary rounded-md mt-4 text-white hover:bg-white hover:text-primary" type="submit">
+          <button className="mt-4 text-white btn btn-primary" type="submit">
             Submit
           </button>
+          </div>
         </form>
+        </div>
       ) : (
         <p>
           You need to be logged in to add Lodging. Please <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
-      {error && <div className="col-12 my-3 bg-danger text-white p-3">{error.message}</div>}
+      {error && <div className="alert alert-error mt-5 max-w-[40rem] mx-auto">{error.message}</div>}
     </div>
   );
 };

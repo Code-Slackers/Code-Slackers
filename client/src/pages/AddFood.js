@@ -8,11 +8,16 @@ const AddFood = () => {
   const locations = data?.locations || [];
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 my-3">{loading ? <div>Loading...</div> : <AddFoodForm locations={locations} />}</div>
-      </div>
-    </main>
+    <div className="py-5">
+        {
+          loading ? <div>Loading...</div>
+            : (
+              <div>
+                <AddFoodForm locations={locations} />
+              </div>
+            )
+        }
+    </div>
   );
 };
 

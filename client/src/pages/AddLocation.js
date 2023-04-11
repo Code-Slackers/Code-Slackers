@@ -5,7 +5,7 @@ const addLocation = () => {
   return (
     <main>
       <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 my-3">
+        <div className="my-3 col-12 col-md-10">
           <AddLocationForm />
         </div>
       </div>

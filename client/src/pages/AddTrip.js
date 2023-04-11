@@ -22,4 +22,4 @@ const AddTrip = () => {
   );
 };
 
-export default AddTrip;
+export default AddTrip

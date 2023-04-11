@@ -47,18 +47,30 @@ function App() {
 
 <div className="flex flex-1">
             <main className="container px-2 mx-auto">
+
               <Routes>
-                <Route path="/" element={<Login />} />
-                {/* <Route path="/login" element={<Login />} /> */}
-                <Route path="/addLocation" element={<AddLocation />} />
-                <Route path="/addTrip" element={<AddTrip />} />
-                <Route path="/signup" element={<Signup />} />
+                {
+                  Auth.loggedIn() ? <>
+                    <Route path="/" element={<Home />} />
+                    <Route path='/addtrip' element={<AddTrip />} />
+                    <Route path="/signup" element={<Signup />} />
                 <Route path="/addFood" element={<AddFood />} />
                 <Route path="/updateFood" element={<UpdateFood />} />
                 <Route path="/addLodging" element={<AddLodging />} />
                 <Route path="/addTransportation" element={<AddTransportation />} />
                 <Route path="/addThingsToDo" element={<AddThingsToDo />} />
+                  </>
+                    : <>
+                      <Route path="/" element={<Login />} />
+                      <Route path="/login" element={<Login />} />
+                      <Route path="/signup" element={<Signup />} />
+                    </>
+                }
               </Routes>
+
+
+
+              
             </main>
           </div>
           <footer className="bg-primary ">

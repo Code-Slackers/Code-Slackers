@@ -42,7 +42,7 @@ const AddLocationForm = ({ profileId }) => {
 
   return (
     <div>
-      <h2 className="text-center text-primary mb-5">Add your NEW location.</h2>
+      <h2 className="mb-5 text-center text-primary">Add your NEW location.</h2>
 
       {Auth.loggedIn() ? (
         <div className="card border max-w-[40rem] mx-auto">
@@ -102,7 +102,7 @@ const AddLocationForm = ({ profileId }) => {
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
               </select>
-              <button className="btn btn-primary text-white mt-4" type="submit">
+              <button className="mt-4 text-white btn btn-primary" type="submit">
                 Submit
               </button>
             </div>
