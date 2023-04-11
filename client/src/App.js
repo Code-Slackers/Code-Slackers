@@ -2,7 +2,7 @@ import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Auth from './utils/auth'
+import Auth from "./utils/auth";
 
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
@@ -45,16 +45,17 @@ function App() {
         <div className="flex flex-col justify-start min-h-screen ">
           <Header />
 
-<div className="flex flex-1">
+          <div className="flex flex-1">
             <main className="container px-2 mx-auto">
               <Routes>
                 <Route path="/" element={<Login />} />
-                {/* <Route path="/login" element={<Login />} /> */}
+                <Route path="/login" element={<Login />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/addLocation" element={<AddLocation />} />
                 <Route path="/addTrip" element={<AddTrip />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/addFood" element={<AddFood />} />
-                <Route path="/updateFood" element={<UpdateFood />} />
+                <Route path="/updateFood/:ID" element={<UpdateFood />} />
                 <Route path="/addLodging" element={<AddLodging />} />
                 <Route path="/addTransportation" element={<AddTransportation />} />
                 <Route path="/addThingsToDo" element={<AddThingsToDo />} />
