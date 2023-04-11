@@ -1,5 +1,5 @@
 import React from "react";
-import UpdateFoodForm from "../components/AddFoodForm";
+import UpdateFoodForm from "../components/UpdateFoodForm";
 import { useQuery } from "@apollo/client";
 import { QUERY_LOCATIONS } from "../utils/queries";
 import CloudinaryUploadWidget from "../components/CloudinaryUploadWidget";
