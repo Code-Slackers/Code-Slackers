@@ -62,6 +62,10 @@ const AddFoodForm = ({ locations }) => {
                 </option>
               ))}
           </select>
+          <div className="w-10 h-10">
+            <img></img>
+          </div>
+
           <input className="w-full mb-2 p-2" placeholder="address" name="address" type="string" value={formState.address} onChange={handleChange} />
           <input className="w-full mb-2 p-2" placeholder="City" name="city" type="string" value={formState.city} onChange={handleChange} />
           <select className="w-full mb-2 p-2" name="state" type="string" value={formState.state} onChange={handleChange}>
