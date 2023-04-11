@@ -43,3 +43,51 @@ export const ADD_TRIP = gql`
     }
   }
 `;
+
+export const ADD_FOOD = gql`
+  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String) {
+    addFood(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone) {
+      _id
+    }
+  }
+`;
+
+export const ADD_LODGING = gql`
+  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String) {
+    addLodging(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone) {
+      _id
+      address
+      starRating
+      phone
+      city
+      category
+      cost
+      state
+    }
+  }
+`;
+
+export const ADD_TRANSPORTATION = gql`
+  mutation AddTransportation($locationId: ID!, $city: String!, $state: String!, $category: String!, $address: String, $phone: String) {
+    addTransportation(locationId: $locationId, city: $city, state: $state, category: $category, address: $address, phone: $phone) {
+      _id
+      city
+      profileId
+      category
+      state
+    }
+  }
+`;
+
+export const ADD_THINGS_TO_DO = gql`
+  mutation AddThingsToDo($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String) {
+    addThingsToDo(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone) {
+      _id
+      address
+      category
+      city
+      state
+      cost
+    }
+  }
+`;

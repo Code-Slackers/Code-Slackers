@@ -10,7 +10,12 @@ import Login from "./pages/Login";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AddTrip from "./pages/AddTrip";
-
+import AddLocation from "./pages/AddLocation";
+import AddFood from "./pages/AddFood";
+import UpdateFood from "./pages/UpdateFood";
+import AddLodging from "./pages/AddLodging";
+import AddTransportation from "./pages/AddTransportation";
+import AddThingsToDo from "./pages/AddThingsToDo";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -37,26 +42,26 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className=" flex flex-col justify-start min-h-screen">
+        <div className="flex flex-col justify-start min-h-screen ">
           <Header />
-          <div className="flex flex-1">
-            <main className="container mx-auto px-2">
+
+<div className="flex flex-1">
+            <main className="container px-2 mx-auto">
               <Routes>
-                {
-                  Auth.loggedIn() ? <>
-                    <Route path="/" element={<Home />} />
-                    <Route path='/add_trip' element={<AddTrip />} />
-                  </>
-                    : <>
-                      <Route path="/" element={<Login />} />
-                      <Route path="/login" element={<Login />} />
-                      <Route path="/signup" element={<Signup />} />
-                    </>
-                }
+                <Route path="/" element={<Login />} />
+                {/* <Route path="/login" element={<Login />} /> */}
+                <Route path="/addLocation" element={<AddLocation />} />
+                <Route path="/addTrip" element={<AddTrip />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/addFood" element={<AddFood />} />
+                <Route path="/updateFood" element={<UpdateFood />} />
+                <Route path="/addLodging" element={<AddLodging />} />
+                <Route path="/addTransportation" element={<AddTransportation />} />
+                <Route path="/addThingsToDo" element={<AddThingsToDo />} />
               </Routes>
             </main>
           </div>
-          <footer className="bg-primary">
+          <footer className="bg-primary ">
             <Footer />
           </footer>
         </div>

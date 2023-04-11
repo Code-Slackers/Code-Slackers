@@ -6,11 +6,11 @@ const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <footer className="w-full text-black px-3 py-5">
-      <div className="flex items-center justify-center flex-col gap-5">
+    <footer className="p-4 mt-auto w-100 text-dark">
+      <div className="container mb-5 text-center">
         {location.pathname !== '/' && (
           <button
-            className="btn btn-secondary btn-sm gap-1"
+            className="mb-3 btn btn-dark"
             onClick={() => navigate(-1)}
           >
             <ArrowLongLeftIcon className='w-5 h-5' />

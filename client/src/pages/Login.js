@@ -42,10 +42,10 @@ const Login = (props) => {
 
   return (
 
-    <div className='h-full grid xl:grid-cols-2 items-center gap-6 pt-10'>
-      <div className='shadow border rounded-3xl'>
+    <div className='grid items-center h-full gap-6 pt-10 xl:grid-cols-2'>
+      <div className='border shadow rounded-3xl'>
         <div className='card-body'>
-          <h1 className='text-neutral mb-10'>Login</h1>
+          <h1 className='mb-10 text-neutral'>Login</h1>
           {data ? (
             <p className='text-center'>
               Success! You may now head{' '}
@@ -71,7 +71,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-primary text-white relative"
+                  className="relative text-white btn btn-primary"
                   type="submit"
                 >
                   <ArrowRightOnRectangleIcon className='w-7 h-7 opacity-60 absolute top-[50%] translate-y-[-50%] left-4' />
@@ -79,7 +79,7 @@ const Login = (props) => {
                 </button>
               </form>
               {(error) && (
-                <div className="alert alert-error text-white">
+                <div className="text-white alert alert-error">
                   {error?.message}
                 </div>
               )}
