@@ -20,7 +20,7 @@ const CloudinaryImage = (props) => {
   };
 
   return (
-    <button className="greenButton" onClick={uploadImageWidget}>
+    <button className="greenButton bg-black text-white" onClick={uploadImageWidget}>
       Upload Image
     </button>
   );

@@ -91,3 +91,12 @@ export const ADD_THINGS_TO_DO = gql`
     }
   }
 `;
+
+export const UPDATE_FOOD = gql`
+  mutation Mutation($foodId: ID!, $phone: String, $images: [String], $reviews: [String], $starRating: Int) {
+    updateFood(foodId: $foodId, phone: $phone, images: $images, reviews: $reviews, starRating: $starRating) {
+      _id
+      category
+    }
+  }
+`;
