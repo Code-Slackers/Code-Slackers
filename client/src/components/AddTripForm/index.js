@@ -20,7 +20,7 @@ const AddTripForm = ({ locations }) => {
     });
   };
 
-  // submit form
+  // submit trip form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -33,7 +33,6 @@ const AddTripForm = ({ locations }) => {
         locationId: "",
         dateOfTrip: "",
       });
-
     } catch (e) {
       console.error(e);
     }
@@ -45,10 +44,10 @@ const AddTripForm = ({ locations }) => {
 
   return (
     <div>
-      <h2 className="text-center text-primary mb-5">Start Your Trip.</h2>
+      <h2 className="mb-5 text-center text-primary">Start Your Trip.</h2>
 
       {Auth.loggedIn() ? (
-        <div className='card border max-w-[40rem] mx-auto'>
+        <div className="card border max-w-[40rem] mx-auto">
           <form className="card-body" onSubmit={handleFormSubmit}>
             <div className="flex flex-col gap-4">
               <select className="select select-primary" name="locationId" type="string" value={formState.locationId} onChange={handleChange} required>
@@ -60,8 +59,8 @@ const AddTripForm = ({ locations }) => {
                     </option>
                   ))}
               </select>
-              <input className="input input-primary" placeholder="Date of Trip" name="dateOfTrip" type="date" value={formState.dateOfTrip} onChange={handleChange} required/>
-              <button className="btn btn-primary text-white mt-4" type="submit">
+              <input className="input input-primary" placeholder="Date of Trip" name="dateOfTrip" type="date" value={formState.dateOfTrip} onChange={handleChange} required />
+              <button className="mt-4 text-white btn btn-primary" type="submit">
                 Submit
               </button>
             </div>
