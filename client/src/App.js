@@ -2,7 +2,9 @@ import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Auth from './utils/auth'
 
+import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Header from "./components/Header";
@@ -40,10 +42,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className=" flex flex-col justify-start min-h-screen">
+        <div className="flex flex-col justify-start min-h-screen ">
           <Header />
-          <div className="flex flex-1 justify-center">
-            <main className="w-8/12 mt-4">
+
+<div className="flex flex-1">
+            <main className="container px-2 mx-auto">
               <Routes>
                 <Route path="/" element={<Login />} />
                 {/* <Route path="/login" element={<Login />} /> */}

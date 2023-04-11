@@ -1,18 +1,20 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { ArrowLongLeftIcon } from '@heroicons/react/24/solid'
 
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <footer className="w-full text-black">
-      <div className="mx-auto text-center mb-5 pt-6">
+    <footer className="p-4 mt-auto w-100 text-dark">
+      <div className="container mb-5 text-center">
         {location.pathname !== '/' && (
           <button
-            className="px-4 py-1 text-lg bg-secondary rounded-md m-2"
+            className="mb-3 btn btn-dark"
             onClick={() => navigate(-1)}
           >
-            &larr; Go Back
+            <ArrowLongLeftIcon className='w-5 h-5' />
+            Go Back
           </button>
         )}
         <h4 className='text-sm'>&copy; {new Date().getFullYear()} - tripr</h4>

@@ -1,8 +1,10 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-import AddTripForm from "../components/AddTripForm";
-import { QUERY_PROFILES } from "../utils/queries";
+import ProfileList from '../components/ProfileList';
+
+import { QUERY_PROFILES } from '../utils/queries';
+import USAMap from '../components/USAMap';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_PROFILES);
@@ -10,16 +12,18 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 my-3">
+      <div className="">
+        <div className="">
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <AddTripForm />
-            // <ProfileList
-            //   profiles={profiles}
-            //   title="Here's the current roster of friends..."
-            // />
+            <div>
+              <ProfileList
+                profiles={profiles}
+                title="Here's the current roster of friends..."
+              />
+              <USAMap />
+            </div>
           )}
         </div>
       </div>

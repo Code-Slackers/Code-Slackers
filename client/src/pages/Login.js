@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-
 import Auth from '../utils/auth';
+import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid'
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -41,19 +41,21 @@ const Login = (props) => {
   };
 
   return (
-      
-        <div className="bg-secondary rounded-lg border border-gray-300 shadow-lg p-4 mb-4 w-full">
-          <h4 className="text-dark text-xl text-center py-2 mb-4 rounded-md font-bold">Login</h4>
-          <div className="text-center">
-            {data ? (
-              <p className='text-center'>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-             ) : (
-              <form className='flex flex-col mb-4 min-w-full' onSubmit={handleFormSubmit}>
+
+    <div className='grid items-center h-full gap-6 pt-10 xl:grid-cols-2'>
+      <div className='border shadow rounded-3xl'>
+        <div className='card-body'>
+          <h1 className='mb-10 text-neutral'>Login</h1>
+          {data ? (
+            <p className='text-center'>
+              Success! You may now head{' '}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <>
+              <form className='flex flex-col gap-3' onSubmit={handleFormSubmit}>
                 <input
-                  className="w-full mb-2 p-2"
+                  className="input input-primary"
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -61,7 +63,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <input
-                  className="w-full mb-2 p-2"
+                  className="input input-primary"
                   placeholder="******"
                   name="password"
                   type="password"
@@ -69,21 +71,26 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <button
-                  className="px-4 py-1 text-lg bg-primary rounded-md mt-4 text-white hover:bg-white hover:text-primary"
+                  className="relative text-white btn btn-primary"
                   type="submit"
                 >
-                  Submit
+                  <ArrowRightOnRectangleIcon className='w-7 h-7 opacity-60 absolute top-[50%] translate-y-[-50%] left-4' />
+                  Login
                 </button>
               </form>
-            )} 
-
-            {error && (
-              <div className="my-3 p-3 bg-red-500 text-white ">
-                {error.message}              
-              </div>
-             )}
-          </div>
+              {(error) && (
+                <div className="text-white alert alert-error">
+                  {error?.message}
+                </div>
+              )}
+            </>
+          )}
         </div>
+      </div>
+      <div className='hidden xl:block'>
+        <img src='/adventure_map.svg' className='max-w-[100%]' />
+      </div>
+    </div>
   );
 };
 
