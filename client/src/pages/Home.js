@@ -1,30 +1,17 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
 
-import ProfileList from '../components/ProfileList';
-
-import { QUERY_PROFILES } from '../utils/queries';
-import USAMap from '../components/USAMap';
+import USAMap from "../components/USAMap";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_PROFILES);
-  const profiles = data?.profiles || [];
 
   return (
     <main>
       <div className="">
         <div className="">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
+         
             <div>
-              <ProfileList
-                profiles={profiles}
-                title="Here's the current roster of friends..."
-              />
               <USAMap />
             </div>
-          )}
         </div>
       </div>
     </main>

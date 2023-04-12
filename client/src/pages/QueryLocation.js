@@ -5,19 +5,24 @@ import { QUERY_LOCATIONS } from "../utils/queries";
 import LocationList from "../components/Locations/index.js";
 
 const QueryLocation = () => {
-  const st = useParams();
+  const params = useParams();
   const { loading, data } = useQuery(QUERY_LOCATIONS);
   const locations = data?.locations || [];
   // console.log("location", locations[0]);
-  // console.log("state", locations[0].state);
+  let locationFilter = [];
+  if (!loading) {
+    locationFilter = locations.filter((location) => location.state === params.st);
+    // console.log(locationFilter, st);
+    // console.log(locations);
+  }
 
   // const locationFilter = locations.filter((location) => location.st === "IL");
   // console.log(st, locationFilter);
 
   return (
     <main>
-      <div className="mb-3 col-12 col-md-8">{loading ? <div>Loading...</div> : <LocationList locations={locations} />}</div>
-
+      <div className="mb-3 col-12 col-md-8">{loading ? <div>Loading...</div> : <LocationList locations={locationFilter} />}</div>
+      <div>{loading ? <div>Loading...</div> : <div> {locations[0].state} </div>}</div>
       <button className="mt-4 text-white btn btn-primary" type="submit">
         Submit
       </button>
