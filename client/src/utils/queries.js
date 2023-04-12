@@ -40,3 +40,14 @@ export const QUERY_LOCATIONS = gql`
     }
   }
 `;
+
+export const QUERY_LOCATION = gql`
+  query Location($locationId: ID!) {
+    location(locationId: $locationId) {
+      _id
+      city
+      state
+      images
+    }
+  }
+`;

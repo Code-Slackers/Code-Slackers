@@ -16,6 +16,7 @@ import UpdateFood from "./pages/UpdateFood";
 import AddLodging from "./pages/AddLodging";
 import AddTransportation from "./pages/AddTransportation";
 import AddThingsToDo from "./pages/AddThingsToDo";
+import QueryLocation from "./pages/QueryLocation";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -48,17 +49,26 @@ function App() {
           <div className="flex flex-1">
             <main className="container px-2 mx-auto">
               <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/addLocation" element={<AddLocation />} />
-                <Route path="/addTrip" element={<AddTrip />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/addFood" element={<AddFood />} />
-                <Route path="/updateFood/:ID" element={<UpdateFood />} />
-                <Route path="/addLodging" element={<AddLodging />} />
-                <Route path="/addTransportation" element={<AddTransportation />} />
-                <Route path="/addThingsToDo" element={<AddThingsToDo />} />
+                {Auth.loggedIn() ? (
+                  <>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/addLocation" element={<AddLocation />} />
+                    <Route path="/addTrip" element={<AddTrip />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/updateFood/:ID" element={<UpdateFood />} />
+                    <Route path="/addLodging" element={<AddLodging />} />
+                    <Route path="/addTransportation" element={<AddTransportation />} />
+                    <Route path="/addThingsToDo" element={<AddThingsToDo />} />
+                    <Route path="/addFood" element={<AddFood />} />
+                    <Route path="/Location/:st" element={<QueryLocation />} />
+                  </>
+                ) : (
+                  <>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                  </>
+                )}
               </Routes>
             </main>
           </div>
