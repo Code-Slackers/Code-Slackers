@@ -1,25 +1,14 @@
 import React from "react";
-import AddFoodForm from "../components/AddFoodForm";
-import { useQuery } from "@apollo/client";
-import { QUERY_LOCATIONS } from "../utils/queries";
+import AddLocationForm from "../components/AddLocationForm";
 
-const AddFood = () => {
-  const { loading, data } = useQuery(QUERY_LOCATIONS);
-  const locations = data?.locations || [];
-
+const AddLocation = () => {
   return (
-    <main className="container px-4 mx-auto">
-      <div className="flex flex-col items-center justify-center mt-8">
-        <div className="w-full md:w-1/2">
-          <div className="px-6 py-4 text-white bg-blue-500">
-            <h1 className="text-2xl font-bold">Add Food</h1>
-          </div>
-          <div className="px-6 py-8 bg-white rounded-lg shadow-lg">
-            {loading ? (
-              <div className="text-center">Loading...</div>
-            ) : (
-              <AddFoodForm locations={locations} />
-            )}
+    <main>
+      <div className="flex-row justify-center">
+        <div className="my-3 col-12 col-md-10">
+          <div className="p-3 card">
+            <h2>Add Location</h2>
+            <AddLocationForm />
           </div>
         </div>
       </div>
@@ -27,4 +16,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
+export default AddLocation;

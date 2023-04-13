@@ -51,16 +51,18 @@ const UpdateFoodForm = () => {
 
   return (
     <div>
-      <h4>Update Food.</h4>
+     <h2 className="mb-5 text-center text-primary">Update Food</h2>
 
       {Auth.loggedIn() ? (
-        <form className="flex flex-col mb-4 min-w-full" data-id={formState.foodId} onSubmit={handleFormSubmit}>
+        <div className="card border max-w-[40rem] mx-auto">
+        <form className="flex flex-col min-w-full mb-4" data-id={formState.foodId} onSubmit={handleFormSubmit}>
+        <div className="flex flex-col gap-4">
           <div className="w-10 h-10">
             <img id="image" data-id="123"></img>
           </div>
-          <input className="w-full mb-2 p-2" placeholder="phone" name="phone" type="string" value={formState.phone} onChange={handleChange} />
-          <input className="w-full mb-2 p-2" placeholder="reviews" name="reviews" type="string" value={formState.reviews} onChange={handleChange} />
-          <select className="w-full mb-2 p-2" name="starRating" type="number" value={formState.starRating} onChange={handleChange}>
+          <input className="input input-primary" placeholder="phone" name="phone" type="string" value={formState.phone} onChange={handleChange} />
+          <input className="input input-primary" placeholder="reviews" name="reviews" type="string" value={formState.reviews} onChange={handleChange} />
+          <select className="select select-primary" name="starRating" type="number" value={formState.starRating} onChange={handleChange}>
             <option>How would you Rate</option>
 
             <option value={1}>1</option>
@@ -69,16 +71,20 @@ const UpdateFoodForm = () => {
             <option value={4}>4</option>
             <option value={5}>5</option>
           </select>
-          <button className="px-4 py-1 text-lg bg-primary rounded-md mt-4 text-white hover:bg-white hover:text-primary" type="submit">
+          <button className="mt-4 text-white btn btn-primary" type="submit">
             Submit
           </button>
+          </div>
+
         </form>
+        </div>
+
       ) : (
         <p>
           You need to be logged in to Update food. Please <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
-      {error && <div className="col-12 my-3 bg-danger text-white p-3">{error.message}</div>}
+      {error && <div className="alert alert-error mt-5 max-w-[40rem] mx-auto">{error.message}</div>}
     </div>
   );
 };
