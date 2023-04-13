@@ -51,3 +51,89 @@ export const QUERY_LOCATION = gql`
     }
   }
 `;
+
+export const QUERY_FOODBYSTATE = gql`
+  query Location($locationId: ID!) {
+    location(locationId: $locationId) {
+      city
+      state
+      food {
+        _id
+        profileId
+        city
+        state
+        address
+        phone
+        category
+        cost
+        images
+        reviews
+        starRating
+      }
+    }
+  }
+`;
+
+export const QUERY_TRANSPORTATIONBYSTATE = gql`
+  query Location($locationId: ID!) {
+    location(locationId: $locationId) {
+      city
+      state
+      transportation {
+        _id
+        profileId
+        city
+        state
+        address
+        phone
+        category
+        amenities
+      }
+    }
+  }
+`;
+
+export const QUERY_LODGINGBYSTATE = gql`
+  query Location($locationId: ID!) {
+    location(locationId: $locationId) {
+      city
+      state
+      lodging {
+        _id
+        profileId
+        city
+        state
+        address
+        phone
+        category
+        cost
+        amenities
+        images
+        reviews
+        starRating
+      }
+    }
+  }
+`;
+
+export const QUERY_THINGSTODOBYSTATE = gql`
+  query Location($locationId: ID!) {
+    location(locationId: $locationId) {
+      city
+      state
+      thingsToDo {
+        _id
+        profileId
+        city
+        state
+        address
+        phone
+        category
+        cost
+        images
+        reviews
+        starRating
+      }
+    }
+  }
+`;
