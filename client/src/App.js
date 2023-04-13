@@ -17,6 +17,12 @@ import AddLodging from "./pages/AddLodging";
 import AddTransportation from "./pages/AddTransportation";
 import AddThingsToDo from "./pages/AddThingsToDo";
 import QueryLocation from "./pages/QueryLocation";
+import ViewSelections from "./pages/ViewSelections";
+import ViewTransportation from "./pages/ViewTransportation";
+import ViewThingsToDo from "./pages/ViewThingsToDo";
+import ViewLodging from "./pages/ViewLodging";
+import ViewFood from "./pages/ViewFood";
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -61,6 +67,15 @@ function App() {
                     <Route path="/addThingsToDo" element={<AddThingsToDo />} />
                     <Route path="/addFood" element={<AddFood />} />
                     <Route path="/Location/:st" element={<QueryLocation />} />
+                    <Route path="/selectedLocation/:locationId" element={<ViewSelections />} />
+                    <Route path="/viewTransportation/:locationId" element={<ViewTransportation />} />
+                    <Route path="/viewThingsToDo/:locationId" element={<ViewThingsToDo />} />
+                    <Route path="/viewLodging/:locationId" element={<ViewLodging />} />
+                    <Route path="/viewfood/:locationId" element={<ViewFood />} />
+
+
+
+
                   </>
                 ) : (
                   <>
