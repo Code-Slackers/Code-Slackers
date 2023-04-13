@@ -8,7 +8,7 @@ const LocationList = ({ locations }) => {
 
   const viewLocationHandler = (event) => {
     const locationId = event.target.closest(".card").id;
-    window.location.assign(`/selectedLocation/${locationId}`);
+    window.location.assign(`/viewtripsbylocation/${locationId}`);
   };
 
   return (

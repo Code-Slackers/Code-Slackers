@@ -5,19 +5,19 @@ const ViewSelection = () => {
   const params = useParams();
 
   const ViewFood = () => {
-    window.location.assign(`/viewFood/${params.locationId}`);
+    window.location.assign(`/viewFood/${params.locationId}/${params.tripId}}`);
   };
 
   const ViewTransportation = () => {
-    window.location.assign(`/viewTransportation/${params.locationId}`);
+    window.location.assign(`/viewTransportation/${params.locationId}/${params.tripId}`);
   };
 
   const ViewThingsToDo = () => {
-    window.location.assign(`/viewThingsToDo/${params.locationId}`);
+    window.location.assign(`/viewThingsToDo/${params.locationId}/${params.tripId}`);
   };
 
   const ViewLodging = () => {
-    window.location.assign(`/viewLodging/${params.locationId}`);
+    window.location.assign(`/viewLodging/${params.locationId}/${params.tripId}`);
   };
 
   return (

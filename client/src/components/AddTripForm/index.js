@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
+import { useParams } from "react-router-dom";
 
 import { ADD_TRIP } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
 const AddTripForm = ({ locations }) => {
-  const [formState, setFormState] = useState({ locationId: "", dateOfTrip: "" });
+  const params = useParams();
+  const [formState, setFormState] = useState({ locationId: params.locationId, dateOfTrip: "" });
   const [addTrip, { error }] = useMutation(ADD_TRIP);
 
   // update state based on form input changes
@@ -27,10 +29,11 @@ const AddTripForm = ({ locations }) => {
       await addTrip({
         variables: { ...formState },
       });
-
+      const tripId = "6432177304ec3a23c9c98630";
+      window.location.assign(`/selectedlocation/${params.locationId}/${tripId}`);
       // clear form values
       setFormState({
-        locationId: "",
+        locationId: params.locationId,
         dateOfTrip: "",
       });
     } catch (e) {
