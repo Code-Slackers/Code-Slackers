@@ -53,8 +53,8 @@ export const ADD_FOOD = gql`
 `;
 
 export const ADD_LODGING = gql`
-  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String) {
-    addLodging(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone) {
+  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String, $amenities: [String], $images: [String], $reviews: [String], $starRating: Int) {
+    addLodging(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone, amenities: $amenities, images: $images, reviews: $reviews, starRating: $starRating) {
       _id
       address
       starRating

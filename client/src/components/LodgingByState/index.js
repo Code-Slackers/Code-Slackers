@@ -35,7 +35,14 @@ const LodgingByState = ({ lodgings }) => {
             <div>
               {lodging.cost} {lodging.starRating}
             </div>
-            {!lodging.images.length ? null : <img src={lodging.images[0]} alt="lodging" />}
+
+            {!lodging.images[0] ? (
+              ""
+            ) : (
+              <div className="w-20">
+                <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${lodging.images[0]}`} alt="food" />
+              </div>
+            )}
             <button
               onClick={() => {
                 addLodgingToTrip(lodging._id);

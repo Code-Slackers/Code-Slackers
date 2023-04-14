@@ -36,7 +36,14 @@ const FoodByState = ({ foods }) => {
             <div>
               {food.cost} {food.starRating}
             </div>
-            {!food.images[0] ? "" : <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`} alt="food" />}
+            {!food.images[0] ? (
+              ""
+            ) : (
+              <div className="w-20">
+                {" "}
+                <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`} alt="food" />{" "}
+              </div>
+            )}
             <button
               onClick={() => {
                 addFoodToTrip(food._id);
