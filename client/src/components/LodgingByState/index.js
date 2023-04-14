@@ -1,30 +1,27 @@
 import React from "react";
 
 const LodgingByState = ({ lodgings }) => {
+  console.log(lodgings);
   if (!lodgings.length) {
-    return (
-      <div className="mt-5 text-center">
-        <h3 className="text-2xl font-bold">No Lodging Yet</h3>
-      </div>
-    );
+    return <h3>No Lodging Yet</h3>;
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+    <div>
       {lodgings &&
         lodgings.map((lodging) => (
-          <div key={lodging._id} id={lodging._id} className="overflow-hidden bg-white rounded-lg shadow-lg">
-            <img src={lodging.images[0]} className="object-cover w-full h-48" alt="lodging" />
-            <div className="p-4">
-              <h5 className="mb-2 text-lg font-bold">{lodging.category}</h5>
-              <p className="mb-2 text-gray-600">
-                {lodging.address} {lodging.state}
-              </p>
-              <p className="mb-4 text-gray-600">
-                {lodging.cost} {lodging.starRating}
-              </p>
-              <button className="block w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-600">ADD LODGING TO TRIP</button>
+          <div key={lodging._id} id={lodging._id} className="p-2 m-0 card-header bg-primary text-light m-2">
+            <div className="mb-3 card">
+              <h4>{lodging.category}</h4>
             </div>
+            <div>
+              {lodging.address} {lodging.state}
+            </div>
+            <div>
+              {lodging.cost} {lodging.starRating}
+            </div>
+            {!lodging.images.length ? null : <img src={lodging.images[0]} alt="lodging" />}
+            <button>ADD LODGING TO TRIP</button>
           </div>
         ))}
     </div>

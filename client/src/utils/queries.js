@@ -137,3 +137,66 @@ export const QUERY_THINGSTODOBYSTATE = gql`
     }
   }
 `;
+
+export const QUERY_TRIPSBYLOCATION = gql`
+  query Query($locationId: ID!) {
+    location(locationId: $locationId) {
+      _id
+      city
+      trips {
+        _id
+        dateOfTrip
+        food {
+          _id
+          profileId
+          city
+          state
+          address
+          phone
+          category
+          cost
+          images
+          reviews
+          starRating
+        }
+        lodging {
+          _id
+          profileId
+          city
+          state
+          address
+          phone
+          category
+          cost
+          amenities
+          images
+          reviews
+          starRating
+        }
+        thingsToDo {
+          _id
+          profileId
+          city
+          state
+          address
+          phone
+          category
+          cost
+          images
+          reviews
+          starRating
+        }
+        transportation {
+          _id
+          profileId
+          city
+          state
+          address
+          phone
+          category
+          amenities
+        }
+      }
+    }
+  }
+`;
