@@ -20,8 +20,6 @@ const FoodByState = ({ foods }) => {
     } catch (error) {
       console.error(error);
     }
-
-    console.log("addFoodToTrip");
   };
 
   return (
@@ -38,7 +36,7 @@ const FoodByState = ({ foods }) => {
             <div>
               {food.cost} {food.starRating}
             </div>
-            {!food.images.length ? null : <img src={food.images[0]} alt="food" />}
+            {!food.images[0] ? "" : <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`} alt="food" />}
             <button
               onClick={() => {
                 addFoodToTrip(food._id);
