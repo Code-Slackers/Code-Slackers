@@ -25,8 +25,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_LOCATION = gql`
-  mutation Mutation($city: String!, $state: String!) {
-    addLocation(city: $city, state: $state) {
+  mutation Mutation($city: String!, $state: String!, $images: [String]) {
+    addLocation(city: $city, state: $state, images: $images) {
       _id
       city
       profileId

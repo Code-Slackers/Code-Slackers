@@ -114,7 +114,7 @@ const typeDefs = gql`
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addTrip(locationId: ID!, dateOfTrip: String!): Trip
-    addLocation(city: String!, state: String!): Location
+    addLocation(city: String!, state: String!, images: [String]): Location
     updateLocation(locationId: ID!, visitors: [ID], images: [String]): Location
     updateTrip(tripId: ID!, lodging: [ID], food: [ID], thingsToDo: [ID], transportation: [ID]): Trip
     addFood(locationId: ID!, city: String!, state: String!, address: String!, phone: String, category: String!, cost: Int!, images: [String], reviews: [String], starRating: Int): Food
