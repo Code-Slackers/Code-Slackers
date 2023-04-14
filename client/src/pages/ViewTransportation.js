@@ -11,7 +11,7 @@ const ViewTransportation = () => {
     variables: { locationId: locationId },
   });
   if (loading) {
-    return <div className="text-center">Loading...</div>;
+    return <div>Loading...</div>;
   }
   const transportations = data?.location.transportation || [];
 
@@ -23,7 +23,9 @@ const ViewTransportation = () => {
     return (
       <>
         <h3 className="text-center">No Transportation Yet</h3>
-        <button className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600" onClick={addTransportationHandler}>ADD TRANSPORTATION</button>
+        <button className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600" onClick={addTransportationHandler}>
+          ADD TRANSPORTATION
+        </button>
       </>
     );
   }
@@ -32,7 +34,9 @@ const ViewTransportation = () => {
     <div id={locationId} className="flex flex-col">
       <h1 className="mb-4 text-3xl font-bold">Transportation in {transportations[0].state}</h1>
       <div className="flex flex-col items-center">
-        <button className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600" onClick={addTransportationHandler}>ADD TRANSPORTATION</button>
+        <button className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600" onClick={addTransportationHandler}>
+          ADD TRANSPORTATION
+        </button>
         <div>{loading ? <div>Loading...</div> : <TransportationByState transportations={transportations} />}</div>
       </div>
     </div>

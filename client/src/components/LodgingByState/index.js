@@ -23,9 +23,7 @@ const LodgingByState = ({ lodgings }) => {
               <p className="mb-4 text-gray-600">
                 {lodging.cost} {lodging.starRating}
               </p>
-              <button className="block w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-600">
-                ADD LODGING TO TRIP
-              </button>
+              <button className="block w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-600">ADD LODGING TO TRIP</button>
             </div>
           </div>
         ))}

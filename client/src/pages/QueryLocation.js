@@ -32,20 +32,9 @@ const QueryLocation = () => {
           </div>
           <div className="mb-6">
             <h2 className="mb-2 text-lg font-bold">Location List:</h2>
-            <div className="p-4 border rounded-lg">
-              {loading ? (
-                <div>Loading...</div>
-              ) : (
-                <LocationList locations={locationFilter} />
-              )}
-            </div>
+            <div className="p-4 border rounded-lg">{loading ? <div>Loading...</div> : <LocationList locations={locationFilter} />}</div>
           </div>
-          <button
-            id="addLocationButton"
-            className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
-            type="submit"
-            onClick={addLocationHandler}
-          >
+          <button id="addLocationButton" className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600" type="submit" onClick={addLocationHandler}>
             Add a New Location
           </button>
         </div>

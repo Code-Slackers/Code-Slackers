@@ -10,9 +10,10 @@ const ViewThingsToDo = () => {
   const { loading, data } = useQuery(QUERY_THINGSTODOBYSTATE, {
     variables: { locationId: locationId },
   });
-
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   const thingsToDo = data?.location.thingsToDo || [];
-
   const addThingsToDoHandler = () => {
     window.location.assign(`/addThingsToDo`);
   };
@@ -32,10 +33,7 @@ const ViewThingsToDo = () => {
             ) : (
               <div className="flex flex-col items-center py-12">
                 <h3 className="mb-4 text-xl font-bold text-gray-800">No Things To Do Yet</h3>
-                <button
-                  className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
-                  onClick={addThingsToDoHandler}
-                >
+                <button className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" onClick={addThingsToDoHandler}>
                   Add Things To Do
                 </button>
               </div>
