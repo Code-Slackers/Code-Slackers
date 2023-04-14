@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
+import CloudinaryUploadWidget from "../CloudinaryUploadWidget";
 
 import { ADD_THINGS_TO_DO } from "../../utils/mutations";
 
@@ -8,7 +9,7 @@ import Auth from "../../utils/auth";
 
 const AddThingsToDoForm = ({ locations }) => {
   const navigate = useNavigate();
-  const [formState, setFormState] = useState({ locationId: "", city: "", state: "", address: "", phone: "", category: "", cost: {} });
+  const [formState, setFormState] = useState({ locationId: "", city: "", state: "", address: "", phone: "", category: "", cost: {}, images: [], reviews: [], starRating: {} });
   const [addThingsToDo, { error, data }] = useMutation(ADD_THINGS_TO_DO);
 
   // update state based on form input changes
@@ -26,9 +27,11 @@ const AddThingsToDoForm = ({ locations }) => {
     event.preventDefault();
     console.log(formState);
     try {
+      const images = document.getElementsByTagName("img")[0].getAttribute("data-id");
       const costInt = parseInt(formState.cost);
+      const starInt = parseInt(formState.starRating);
       const { data } = await addThingsToDo({
-        variables: { ...formState, cost: costInt },
+        variables: { ...formState, cost: costInt, images: [images], starRating: starInt },
       });
       console.log(data);
       navigate(-1);
@@ -45,6 +48,9 @@ const AddThingsToDoForm = ({ locations }) => {
       phone: "",
       category: "",
       cost: {},
+      images: [],
+      reviews: [],
+      starRating: {},
     });
   };
 
@@ -146,15 +152,29 @@ const AddThingsToDoForm = ({ locations }) => {
 
                 <option value={1}>1</option>
                 <option value={2}>2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+              </select>
+              <select className="select select-primary" name="starRating" type="number" value={formState.starRating} onChange={handleChange}>
+                <option>Star Rating</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
               </select>
               <button className="mt-4 text-white btn btn-primary" type="submit">
                 Submit
               </button>
             </div>
           </form>
+          <div>
+            <div className="w-10 h-10">
+              <img id="image" data-id=""></img>
+            </div>
+            <CloudinaryUploadWidget />
+          </div>
         </div>
       ) : (
         <p>

@@ -80,8 +80,8 @@ export const ADD_TRANSPORTATION = gql`
 `;
 
 export const ADD_THINGS_TO_DO = gql`
-  mutation AddThingsToDo($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String) {
-    addThingsToDo(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone) {
+  mutation AddThingsToDo($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String, $images: [String], $reviews: [String], $starRating: Int) {
+    addThingsToDo(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone, images: $images, reviews: $reviews, starRating: $starRating) {
       _id
       address
       category
