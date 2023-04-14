@@ -45,7 +45,7 @@ export const ADD_TRIP = gql`
 `;
 
 export const ADD_FOOD = gql`
-  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String, $images: [String], $starRating: Int) {
+  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: String!, $phone: String, $images: [String], $starRating: String) {
     addFood(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone, images: $images, starRating: $starRating) {
       _id
     }
@@ -53,7 +53,7 @@ export const ADD_FOOD = gql`
 `;
 
 export const ADD_LODGING = gql`
-  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String, $amenities: [String], $images: [String], $reviews: [String], $starRating: Int) {
+  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: String!, $phone: String, $amenities: [String], $images: [String], $reviews: [String], $starRating: String) {
     addLodging(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone, amenities: $amenities, images: $images, reviews: $reviews, starRating: $starRating) {
       _id
       address
@@ -80,7 +80,7 @@ export const ADD_TRANSPORTATION = gql`
 `;
 
 export const ADD_THINGS_TO_DO = gql`
-  mutation AddThingsToDo($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String, $images: [String], $reviews: [String], $starRating: Int) {
+  mutation AddThingsToDo($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: String!, $phone: String, $images: [String], $reviews: [String], $starRating: String) {
     addThingsToDo(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone, images: $images, reviews: $reviews, starRating: $starRating) {
       _id
       address
@@ -93,7 +93,7 @@ export const ADD_THINGS_TO_DO = gql`
 `;
 
 export const UPDATE_FOOD = gql`
-  mutation Mutation($foodId: ID!, $phone: String, $images: [String], $reviews: [String], $starRating: Int) {
+  mutation Mutation($foodId: ID!, $phone: String, $images: [String], $reviews: [String], $starRating: String) {
     updateFood(foodId: $foodId, phone: $phone, images: $images, reviews: $reviews, starRating: $starRating) {
       _id
       category

@@ -29,7 +29,7 @@ const foodSchema = new Schema({
     required: true,
   },
   cost: {
-    type: Number,
+    type: String,
     required: true,
   },
   images: [
@@ -43,7 +43,7 @@ const foodSchema = new Schema({
     },
   ],
   starRating: {
-    type: Number,
+    type: String,
   },
 });
 

@@ -29,7 +29,7 @@ const lodgingSchema = new Schema({
     required: true,
   },
   cost: {
-    type: Number,
+    type: String,
     required: true,
   },
   amenities: [
@@ -48,7 +48,7 @@ const lodgingSchema = new Schema({
     },
   ],
   starRating: {
-    type: Number,
+    type: String,
   },
 });
 

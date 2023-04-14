@@ -21,11 +21,18 @@ const TripById = (trip) => {
               <div key={food._id}>
                 <p>{food.address}</p>
                 <p>{food.phone}</p>
-                <p>Category: {food.category}</p>
-                <p>Cost: {food.cost}</p>
-                <p>{food.images}</p>
+                <p>{food.category}</p>
+                <p>{food.cost}</p>
+                <p>{food.starRating}</p>
+                {!food.images[0] ? (
+                  ""
+                ) : (
+                  <div className="w-20">
+                    {" "}
+                    <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`} alt="food" />{" "}
+                  </div>
+                )}
                 <p>{food.reviews}</p>
-                {!food.starRating ? "" : <p>StarRating: {food.starRating}</p>}
               </div>
             ))}
           </div>
@@ -37,11 +44,10 @@ const TripById = (trip) => {
               <div key={transportation._id}>
                 <p>{transportation.address}</p>
                 <p>{transportation.phone}</p>
-                <p>Category: {transportation.category}</p>
-                <p>Cost: {transportation.cost}</p>
-                <p>{transportation.images}</p>
+                <p>{transportation.category}</p>
+                <p>{transportation.cost}</p>
+                <p>{transportation.starRating}</p>
                 <p>{transportation.reviews}</p>
-                {!transportation.starRating ? "" : <p>StarRating: {transportation.starRating}</p>}
               </div>
             ))}
           </div>
@@ -53,11 +59,18 @@ const TripById = (trip) => {
               <div key={thingsToDo._id}>
                 <p>{thingsToDo.address}</p>
                 <p>{thingsToDo.phone}</p>
-                <p>Category: {thingsToDo.category}</p>
-                <p>Cost: {thingsToDo.cost}</p>
-                <p>{thingsToDo.images}</p>
+                <p>{thingsToDo.category}</p>
+                <p>{thingsToDo.cost}</p>
+                <p>{thingsToDo.starRating}</p>
+                {!thingsToDo.images[0] ? (
+                  ""
+                ) : (
+                  <div className="w-20">
+                    {" "}
+                    <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${thingsToDo.images[0]}`} alt="food" />{" "}
+                  </div>
+                )}
                 <p>{thingsToDo.reviews}</p>
-                {!thingsToDo.starRating ? "" : <p>StarRating: {thingsToDo.starRating}</p>}
               </div>
             ))}
           </div>
@@ -69,11 +82,18 @@ const TripById = (trip) => {
               <div key={lodging._id}>
                 <p>{lodging.address}</p>
                 <p>{lodging.phone}</p>
-                <p>Category: {lodging.category}</p>
-                <p>Cost: {lodging.cost}</p>
-                <p>{lodging.images}</p>
+                <p>{lodging.category}</p>
+                <p>{lodging.cost}</p>
+                <p>{lodging.starRating}</p>
+                {!lodging.images[0] ? (
+                  ""
+                ) : (
+                  <div className="w-20">
+                    {" "}
+                    <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${lodging.images[0]}`} alt="food" />{" "}
+                  </div>
+                )}
                 <p>{lodging.reviews}</p>
-                {!lodging.starRating ? "" : <p>StarRating: {lodging.starRating}</p>}
               </div>
             ))}
           </div>
