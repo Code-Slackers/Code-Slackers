@@ -5,7 +5,7 @@ const ViewSelection = () => {
   const params = useParams();
 
   const ViewFood = () => {
-    window.location.assign(`/viewFood/${params.locationId}/${params.tripId}}`);
+    window.location.assign(`/viewFood/${params.locationId}/${params.tripId}`);
   };
 
   const ViewTransportation = () => {

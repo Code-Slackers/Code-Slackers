@@ -5,7 +5,7 @@ import { QUERY_FOODBYSTATE } from "../utils/queries";
 import FoodByState from "../components/FoodByState/index.js";
 
 const ViewFood = () => {
-  const { locationId } = useParams();
+  const { locationId, tripId } = useParams();
   const { loading, data } = useQuery(QUERY_FOODBYSTATE, {
     variables: { locationId: locationId },
   });
@@ -17,6 +17,9 @@ const ViewFood = () => {
     );
   }
   const foods = data?.location.food || [];
+  const addFoodHandler = () => {
+    window.location.assign(`/addFood`);
+  };
 
   if (!foods.length) {
     return (
@@ -31,10 +34,6 @@ const ViewFood = () => {
     );
   }
 
-  const addFoodHandler = () => {
-    window.location.assign(`/addFood`);
-  };
-
   return (
     <div className="container px-4 mx-auto mt-8">
       <h1 className="text-3xl font-bold">{foods[0].state} Food</h1>
@@ -43,7 +42,7 @@ const ViewFood = () => {
           ADD FOOD
         </button>
       </div>
-      <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 md:grid-cols-3">{loading ? <div className="spinner"></div> : <FoodByState foods={foods} />}</div>
+      <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 md:grid-cols-3">{loading ? <div className="spinner"></div> : <FoodByState foods={foods} trip={tripId} />}</div>
     </div>
   );
 };
