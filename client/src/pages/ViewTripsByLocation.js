@@ -32,8 +32,11 @@ const ViewTripsByLocation = () => {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="text-3xl font-semibold text-gray-800">No Trips Yet</div>
-        <button onClick={newTripHandler} className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600">
-          ADD NEW TRIP
+        <button
+          onClick={newTripHandler}
+          className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+        >
+          BUILD YOUR OWN TRIP
         </button>
       </div>
     );
@@ -42,13 +45,21 @@ const ViewTripsByLocation = () => {
   return (
     <div id={locationId} className="flex flex-col items-center">
       <h1 className="mb-8 text-3xl font-semibold text-gray-800">
-        Trips in {city}, {state}
+        {city}, Here We Come
       </h1>
       <div className="w-full">
-        <button onClick={newTripHandler} className="px-4 py-2 mb-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600">
-          ADD NEW TRIP
+        <button
+          onClick={newTripHandler}
+          className="px-4 py-2 font-bold mb-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+        >
+          BUILD YOUR OWN TRIP
         </button>
-        <div>{loading ? <div>Loading...</div> : <TripsByLocation trips={trips} />}</div>
+        <p>
+          Looking for inspiration? Check out past trips below to make your own.
+        </p>
+        <div>
+          {loading ? <div>Loading...</div> : <TripsByLocation trips={trips} />}
+        </div>
       </div>
     </div>
   );

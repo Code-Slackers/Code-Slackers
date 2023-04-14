@@ -1,10 +1,11 @@
 import { useMutation } from "@apollo/client";
 import React from "react";
 import { UPDATE_TRIP } from "../../utils/mutations";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const FoodByState = ({ foods }) => {
   const { tripId } = useParams();
+  const navigate = useNavigate();
   const [addFood, { error }] = useMutation(UPDATE_TRIP);
   if (!foods.length) {
     return <h3>No Foods Yet</h3>;
@@ -17,6 +18,7 @@ const FoodByState = ({ foods }) => {
         variables: { tripId: tripId, food: foodId },
       });
       console.log(data);
+      navigate(-1);
     } catch (error) {
       console.error(error);
     }
@@ -26,7 +28,11 @@ const FoodByState = ({ foods }) => {
     <div>
       {foods &&
         foods.map((food) => (
-          <div key={food._id} id={food._id} className="p-2 m-0 card-header bg-primary text-light m-2">
+          <div
+            key={food._id}
+            id={food._id}
+            className="p-2 m-0 card-header bg-primary text-light m-2"
+          >
             <div className="mb-3 card">
               <h4>{food.category}</h4>
             </div>
@@ -41,7 +47,10 @@ const FoodByState = ({ foods }) => {
             ) : (
               <div className="w-20">
                 {" "}
-                <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`} alt="food" />{" "}
+                <img
+                  src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`}
+                  alt="food"
+                />{" "}
               </div>
             )}
             <button
@@ -49,7 +58,7 @@ const FoodByState = ({ foods }) => {
                 addFoodToTrip(food._id);
               }}
             >
-              ADD FOOD TO TRIP
+              ADD TO TRIP
             </button>
           </div>
         ))}

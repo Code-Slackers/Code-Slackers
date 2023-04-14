@@ -25,44 +25,29 @@ const ViewSelection = () => {
   }
   const tripData = trip.data.trip || [];
 
-  const ViewFood = () => {
-    window.location.assign(`/viewFood/${params.locationId}/${params.tripId}`);
-  };
-
-  const ViewTransportation = () => {
-    window.location.assign(`/viewTransportation/${params.locationId}/${params.tripId}`);
-  };
-
-  const ViewThingsToDo = () => {
-    window.location.assign(`/viewThingsToDo/${params.locationId}/${params.tripId}`);
-  };
-
-  const ViewLodging = () => {
-    window.location.assign(`/viewLodging/${params.locationId}/${params.tripId}`);
-  };
-
   return (
-    <div id={params.locationId} className="flex flex-col items-center justify-center h-screen">
+    <div
+      id={params.locationId}
+      className="flex flex-col items-center justify-center h-screen"
+    >
       <h1 className="mb-8 text-3xl font-bold">
-        Selections in {data.location.city}, {data.location.state}
+        Your Trip to {data.location.city}, {data.location.state}
       </h1>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
-        <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50" onClick={ViewFood}>
-          View Food
-        </button>
-        <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50" onClick={ViewTransportation}>
-          View Transportation
-        </button>
-        <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50" onClick={ViewThingsToDo}>
-          View Things to Do
-        </button>
-        <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50" onClick={ViewLodging}>
-          View Lodging
-        </button>
-      </div>
+      <p className="font-bold">
+        Here's where you'll find all the key details for your trip.
+      </p>
+      <p>If you're building your own, start adding items to each category.</p>
+      <p>
+        If you're checking out a past trip's items, feel free to update them.
+      </p>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4"></div>
       <div>
         <h2 className="mt-8 text-2xl font-bold">This Trip</h2>
-        {trip.loading ? <div className="spinner"></div> : <TripById trip={tripData} />}
+        {trip.loading ? (
+          <div className="spinner"></div>
+        ) : (
+          <TripById trip={tripData} />
+        )}
       </div>
     </div>
   );

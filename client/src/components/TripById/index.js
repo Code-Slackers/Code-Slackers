@@ -1,7 +1,30 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const TripById = (trip) => {
   console.log("TRIP", trip.trip.food);
+  const params = useParams();
+  const ViewFood = () => {
+    window.location.assign(`/viewFood/${params.locationId}/${params.tripId}`);
+  };
+
+  const ViewTransportation = () => {
+    window.location.assign(
+      `/viewTransportation/${params.locationId}/${params.tripId}`
+    );
+  };
+
+  const ViewThingsToDo = () => {
+    window.location.assign(
+      `/viewThingsToDo/${params.locationId}/${params.tripId}`
+    );
+  };
+
+  const ViewLodging = () => {
+    window.location.assign(
+      `/viewLodging/${params.locationId}/${params.tripId}`
+    );
+  };
   if (!trip) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -9,10 +32,11 @@ const TripById = (trip) => {
       </div>
     );
   }
-
   return (
     <>
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">{trip.trip.dateOfTrip}</div>
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        {trip.trip.dateOfTrip}
+      </div>
       <div className="flex">
         <div>
           <h1>Food</h1>
@@ -29,13 +53,22 @@ const TripById = (trip) => {
                 ) : (
                   <div className="w-20">
                     {" "}
-                    <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`} alt="food" />{" "}
+                    <img
+                      src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`}
+                      alt="food"
+                    />{" "}
                   </div>
                 )}
                 <p>{food.reviews}</p>
               </div>
             ))}
           </div>
+          <button
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
+            onClick={ViewFood}
+          >
+            Add or Update
+          </button>
         </div>
         <div>
           <h1>Transportation</h1>
@@ -51,6 +84,12 @@ const TripById = (trip) => {
               </div>
             ))}
           </div>
+          <button
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
+            onClick={ViewTransportation}
+          >
+            Add or Update
+          </button>
         </div>
         <div>
           <h1>Things To Do</h1>
@@ -67,13 +106,22 @@ const TripById = (trip) => {
                 ) : (
                   <div className="w-20">
                     {" "}
-                    <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${thingsToDo.images[0]}`} alt="food" />{" "}
+                    <img
+                      src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${thingsToDo.images[0]}`}
+                      alt="food"
+                    />{" "}
                   </div>
                 )}
                 <p>{thingsToDo.reviews}</p>
               </div>
             ))}
           </div>
+          <button
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
+            onClick={ViewThingsToDo}
+          >
+            Add or Update
+          </button>
         </div>
         <div>
           <h1>Lodging</h1>
@@ -90,13 +138,22 @@ const TripById = (trip) => {
                 ) : (
                   <div className="w-20">
                     {" "}
-                    <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${lodging.images[0]}`} alt="food" />{" "}
+                    <img
+                      src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${lodging.images[0]}`}
+                      alt="food"
+                    />{" "}
                   </div>
                 )}
                 <p>{lodging.reviews}</p>
               </div>
             ))}
           </div>
+          <button
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
+            onClick={ViewLodging}
+          >
+            Add or Update
+          </button>
         </div>
       </div>
     </>

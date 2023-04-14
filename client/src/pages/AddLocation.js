@@ -7,7 +7,7 @@ const AddLocation = () => {
       <div className="flex-row justify-center">
         <div className="my-3 col-12 col-md-10">
           <div className="p-3 card">
-            <h2>Add Location</h2>
+            <h2>New City. New Adventure.</h2>
             <AddLocationForm />
           </div>
         </div>

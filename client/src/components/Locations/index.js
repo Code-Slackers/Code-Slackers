@@ -13,21 +13,30 @@ const LocationList = ({ locations }) => {
 
   return (
     <div>
-      <h3>Locations in {locations[0].state}</h3>
       {locations &&
         locations.map((location) => (
-          <div key={location._id} id={location._id} className="mb-3 card" onClick={viewLocationHandler}>
-            <h4 className="p-2 m-0 card-header bg-primary text-light">
-              {location.city} {location.state} <br />
+          <div
+            key={location._id}
+            id={location._id}
+            className="mb-3 card"
+            onClick={viewLocationHandler}
+          >
+            <div className="p-2 m-0 card-header border rounded-lg text-light flex">
               {!location.images[0] ? (
                 ""
               ) : (
                 <div className="w-20 h-20">
                   {" "}
-                  <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${location.images[0]}`} alt="food" />
+                  <img
+                    src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${location.images[0]}`}
+                    alt="food"
+                  />
                 </div>
               )}
-            </h4>
+              <h4 className="p-2 m-0 card-header text-light">
+                {location.city} <br />
+              </h4>
+            </div>
           </div>
         ))}
     </div>
