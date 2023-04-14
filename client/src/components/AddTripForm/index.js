@@ -10,8 +10,7 @@ import Auth from "../../utils/auth";
 const AddTripForm = ({ locations }) => {
   const params = useParams();
   const [formState, setFormState] = useState({ locationId: params.locationId, dateOfTrip: "" });
-  const [addTrip, { error }] = useMutation(ADD_TRIP);
-
+  const [addTrip, { error, data, loading }] = useMutation(ADD_TRIP);
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -26,10 +25,10 @@ const AddTripForm = ({ locations }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      await addTrip({
+      const mutationResult = await addTrip({
         variables: { ...formState },
       });
-      const tripId = "6432177304ec3a23c9c98630";
+      const tripId = mutationResult.data.addTrip._id;
       window.location.assign(`/selectedlocation/${params.locationId}/${tripId}`);
       // clear form values
       setFormState({
