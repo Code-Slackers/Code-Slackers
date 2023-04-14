@@ -28,7 +28,7 @@ const thingsToDoSchema = new Schema({
     required: true,
   },
   cost: {
-    type: Number,
+    type: String,
     required: true,
   },
   images: [
@@ -42,7 +42,7 @@ const thingsToDoSchema = new Schema({
     },
   ],
   starRating: {
-    type: Number,
+    type: String,
   },
 });
 

@@ -28,10 +28,8 @@ const AddThingsToDoForm = ({ locations }) => {
     console.log(formState);
     try {
       const images = document.getElementsByTagName("img")[0].getAttribute("data-id");
-      const costInt = parseInt(formState.cost);
-      const starInt = parseInt(formState.starRating);
       const { data } = await addThingsToDo({
-        variables: { ...formState, cost: costInt, images: [images], starRating: starInt },
+        variables: { ...formState, images: [images] },
       });
       console.log(data);
       navigate(-1);
@@ -150,19 +148,19 @@ const AddThingsToDoForm = ({ locations }) => {
               <select className="select select-primary" name="cost" type="number" value={formState.cost} onChange={handleChange}>
                 <option>How would you Rate Cost</option>
 
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
+                <option value="$">1</option>
+                <option value="$$">2</option>
+                <option value="$$$">3</option>
+                <option value="$$$$">4</option>
+                <option value="$$$$$">5</option>
               </select>
               <select className="select select-primary" name="starRating" type="number" value={formState.starRating} onChange={handleChange}>
                 <option>Star Rating</option>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
+                <option value="*">1</option>
+                <option value="**">2</option>
+                <option value="***">3</option>
+                <option value="****">4</option>
+                <option value="*****">5</option>
               </select>
               <button className="mt-4 text-white btn btn-primary" type="submit">
                 Submit
