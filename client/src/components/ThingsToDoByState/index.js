@@ -1,9 +1,25 @@
+import { useMutation } from "@apollo/client";
 import React from "react";
+import { UPDATE_TRIP } from "../../utils/mutations";
+import { useParams } from "react-router-dom";
 
 const ThingsToDoByState = ({ thingsToDo }) => {
+  const { tripId } = useParams();
+  const [addThingsToDo, { error }] = useMutation(UPDATE_TRIP);
   if (!thingsToDo.length) {
     return <h3>No Things To Do Yet</h3>;
   }
+
+  const addThingsToDoToTrip = async (thingsToDoId) => {
+    try {
+      const { data } = await addThingsToDo({
+        variables: { tripId: tripId, thingsToDo: thingsToDoId },
+      });
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div>
@@ -20,7 +36,13 @@ const ThingsToDoByState = ({ thingsToDo }) => {
               {thingToDo.cost} {thingToDo.starRating}
             </div>
             {!thingToDo.images.length ? null : <img src={thingToDo.images[0]} alt="thingToDo" />}
-            <button>ADD THING TO DO TO TRIP</button>
+            <button
+              onClick={() => {
+                addThingsToDoToTrip(thingToDo._id);
+              }}
+            >
+              ADD THING TO DO TO TRIP
+            </button>
           </div>
         ))}
     </div>

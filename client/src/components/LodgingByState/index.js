@@ -1,10 +1,25 @@
+import { useMutation } from "@apollo/client";
 import React from "react";
+import { UPDATE_TRIP } from "../../utils/mutations";
+import { useParams } from "react-router-dom";
 
 const LodgingByState = ({ lodgings }) => {
-  console.log(lodgings);
+  const { tripId } = useParams();
+  const [addLodging, { error }] = useMutation(UPDATE_TRIP);
   if (!lodgings.length) {
     return <h3>No Lodging Yet</h3>;
   }
+
+  const addLodgingToTrip = async (lodgingId) => {
+    try {
+      const { data } = await addLodging({
+        variables: { tripId: tripId, lodging: lodgingId },
+      });
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div>
@@ -21,7 +36,13 @@ const LodgingByState = ({ lodgings }) => {
               {lodging.cost} {lodging.starRating}
             </div>
             {!lodging.images.length ? null : <img src={lodging.images[0]} alt="lodging" />}
-            <button>ADD LODGING TO TRIP</button>
+            <button
+              onClick={() => {
+                addLodgingToTrip(lodging._id);
+              }}
+            >
+              ADD LODGING TO TRIP
+            </button>
           </div>
         ))}
     </div>
