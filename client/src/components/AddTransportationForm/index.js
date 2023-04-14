@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import { ADD_TRANSPORTATION } from "../../utils/mutations";
@@ -7,6 +7,7 @@ import { ADD_TRANSPORTATION } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const AddTransportationForm = ({ locations }) => {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({ locationId: "", city: "", state: "", address: "", phone: "", category: "" });
   const [addTransportation, { error, data }] = useMutation(ADD_TRANSPORTATION);
 
@@ -29,6 +30,7 @@ const AddTransportationForm = ({ locations }) => {
         variables: { ...formState },
       });
       console.log(data);
+      navigate(-1);
     } catch (e) {
       console.error(e);
     }

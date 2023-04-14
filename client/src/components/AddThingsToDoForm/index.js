@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import { ADD_THINGS_TO_DO } from "../../utils/mutations";
@@ -7,6 +7,7 @@ import { ADD_THINGS_TO_DO } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const AddThingsToDoForm = ({ locations }) => {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({ locationId: "", city: "", state: "", address: "", phone: "", category: "", cost: {} });
   const [addThingsToDo, { error, data }] = useMutation(ADD_THINGS_TO_DO);
 
@@ -30,6 +31,7 @@ const AddThingsToDoForm = ({ locations }) => {
         variables: { ...formState, cost: costInt },
       });
       console.log(data);
+      navigate(-1);
     } catch (e) {
       console.error(e);
     }

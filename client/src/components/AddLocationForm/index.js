@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import { ADD_LOCATION } from "../../utils/mutations";
@@ -7,6 +7,8 @@ import { ADD_LOCATION } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const AddLocationForm = ({ profileId }) => {
+  const navigate = useNavigate();
+
   const [formState, setFormState] = useState({ city: "", state: "" });
   const [addLocation, { error, data }] = useMutation(ADD_LOCATION);
 
@@ -29,6 +31,7 @@ const AddLocationForm = ({ profileId }) => {
         variables: { ...formState },
       });
       console.log(data);
+      navigate(-1);
     } catch (e) {
       console.error(e);
     }
