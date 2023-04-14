@@ -22,6 +22,7 @@ import ViewFood from "./pages/ViewFood";
 import ViewTransportation from "./pages/ViewTransportation";
 import ViewThingsToDo from "./pages/ViewThingsToDo";
 import ViewLodging from "./pages/ViewLodging";
+import ViewTripsByLocation from "./pages/ViewTripsByLocation";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -58,7 +59,7 @@ function App() {
                   <>
                     <Route path="/" element={<Home />} />
                     <Route path="/addLocation" element={<AddLocation />} />
-                    <Route path="/addTrip" element={<AddTrip />} />
+                    <Route path="/addTrip/:locationId" element={<AddTrip />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/updateFood/:ID" element={<UpdateFood />} />
                     <Route path="/addLodging" element={<AddLodging />} />
@@ -66,11 +67,12 @@ function App() {
                     <Route path="/addThingsToDo" element={<AddThingsToDo />} />
                     <Route path="/addFood" element={<AddFood />} />
                     <Route path="/Location/:st" element={<QueryLocation />} />
-                    <Route path="/selectedLocation/:locationId" element={<ViewSelections />} />
-                    <Route path="/viewfood/:locationId" element={<ViewFood />} />
-                    <Route path="/viewtransportation/:locationId" element={<ViewTransportation />} />
-                    <Route path="/viewlodging/:locationId" element={<ViewLodging />} />
-                    <Route path="/viewthingstodo/:locationId" element={<ViewThingsToDo />} />
+                    <Route path="/selectedLocation/:locationId/:tripId" element={<ViewSelections />} />
+                    <Route path="/viewfood/:locationId/:tripId" element={<ViewFood />} />
+                    <Route path="/viewtransportation/:locationId/:tripId" element={<ViewTransportation />} />
+                    <Route path="/viewlodging/:locationId/:tripId" element={<ViewLodging />} />
+                    <Route path="/viewthingstodo/:locationId/:tripId" element={<ViewThingsToDo />} />
+                    <Route path="/viewtripsbylocation/:locationId" element={<ViewTripsByLocation />} />
                   </>
                 ) : (
                   <>

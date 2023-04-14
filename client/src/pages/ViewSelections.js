@@ -5,38 +5,27 @@ const ViewSelection = () => {
   const params = useParams();
 
   const ViewFood = () => {
-    window.location.assign(`/viewFood/${params.locationId}`);
+    window.location.assign(`/viewFood/${params.locationId}/${params.tripId}}`);
   };
 
   const ViewTransportation = () => {
-    window.location.assign(`/viewTransportation/${params.locationId}`);
+    window.location.assign(`/viewTransportation/${params.locationId}/${params.tripId}`);
   };
 
   const ViewThingsToDo = () => {
-    window.location.assign(`/viewThingsToDo/${params.locationId}`);
+    window.location.assign(`/viewThingsToDo/${params.locationId}/${params.tripId}`);
   };
 
   const ViewLodging = () => {
-    window.location.assign(`/viewLodging/${params.locationId}`);
+    window.location.assign(`/viewLodging/${params.locationId}/${params.tripId}`);
   };
 
   return (
-    <div className="container px-4 mx-auto mt-8">
-      <h1 className="text-3xl font-bold">Selected Location</h1>
-      <div className="flex flex-col items-center justify-center mt-4 sm:flex-row">
-        <button className="px-4 py-2 mb-2 text-white bg-blue-500 rounded-md sm:mr-2 sm:mb-0" onClick={ViewFood}>
-          VIEW FOOD
-        </button>
-        <button className="px-4 py-2 mb-2 text-white bg-blue-500 rounded-md sm:mr-2 sm:mb-0" onClick={ViewTransportation}>
-          VIEW TRANSPORTATION
-        </button>
-        <button className="px-4 py-2 mb-2 text-white bg-blue-500 rounded-md sm:mr-2 sm:mb-0" onClick={ViewThingsToDo}>
-          VIEW THINGS TO DO
-        </button>
-        <button className="px-4 py-2 mb-2 text-white bg-blue-500 rounded-md sm:mr-2 sm:mb-0" onClick={ViewLodging}>
-          VIEW LODGING
-        </button>
-      </div>
+    <div id={params.locationId} className="flex flex-col">
+      <button onClick={ViewFood}>VIEW FOOD</button>
+      <button onClick={ViewTransportation}>VIEW TRANSPORTATION</button>
+      <button onClick={ViewThingsToDo}>VIEW THINGS TO DO</button>
+      <button onClick={ViewLodging}>VIEW LODGING</button>
     </div>
   );
 };

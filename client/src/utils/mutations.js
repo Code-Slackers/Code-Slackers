@@ -100,3 +100,11 @@ export const UPDATE_FOOD = gql`
     }
   }
 `;
+
+export const UPDATE_TRIP = gql`
+  mutation Mutation($tripId: ID!, $food: [ID], $lodging: [ID], $thingsToDo: [ID], $transportation: [ID]) {
+    updateTrip(tripId: $tripId, food: $food, lodging: $lodging, thingsToDo: $thingsToDo, transportation: $transportation) {
+      _id
+    }
+  }
+`;
