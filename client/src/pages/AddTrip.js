@@ -10,14 +10,13 @@ const AddTrip = () => {
 
   return (
     <div className="py-5">
-        {
-          loading ? <div>Loading...</div>
-            : (
-              <div>
-                <AddTripForm locations={locations} />
-              </div>
-            )
-        }
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <div>
+          <AddTripForm locations={locations} />
+        </div>
+      )}
     </div>
   );
 };
