@@ -84,8 +84,8 @@ const resolvers = {
     addTrip: async (parent, { locationId, dateOfTrip }, context) => {
       if (context.user) {
         const createTrip = await Trips.create({ profileId: context.user._id, dateOfTrip });
-        await Profile.findOneAndUpdate(context.user._id, { $push: { trips: createTrip._id } }, { new: true });
-        await Location.findOneAndUpdate(locationId, { $push: { trips: createTrip._id } }, { new: true });
+        await Profile.findOneAndUpdate({ _id: context.user._id }, { $push: { trips: createTrip._id } }, { new: true });
+        await Location.findOneAndUpdate({ _id: locationId }, { $push: { trips: createTrip._id } }, { new: true });
         return createTrip;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -118,7 +118,7 @@ const resolvers = {
     addFood: async (parent, { locationId, city, state, address, phone, category, cost, images, reviews, starRating }, context) => {
       if (context.user) {
         const addFood = await Food.create({ profileId: context.user._id, city, state, address, phone, category, cost, images, reviews, starRating });
-        await Location.findOneAndUpdate(locationId, { $push: { food: addFood._id } }, { new: true });
+        await Location.findOneAndUpdate({ _id: locationId }, { $push: { food: addFood._id } }, { new: true });
         return addFood;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -135,7 +135,7 @@ const resolvers = {
     addLodging: async (parent, { locationId, city, state, address, phone, category, cost, amenities, images, reviews, starRating }, context) => {
       if (context.user) {
         const addLodging = await Lodging.create({ profileId: context.user._id, city, state, address, phone, category, cost, amenities, images, reviews, starRating });
-        await Location.findOneAndUpdate(locationId, { $push: { lodging: addLodging._id } }, { new: true });
+        await Location.findOneAndUpdate({ _id: locationId }, { $push: { lodging: addLodging._id } }, { new: true });
         return addLodging;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -152,7 +152,7 @@ const resolvers = {
     addTransportation: async (parent, { locationId, city, state, address, phone, category, amenities }, context) => {
       if (context.user) {
         const addTransportation = await Transportation.create({ profileId: context.user._id, city, state, address, phone, category, amenities });
-        await Location.findOneAndUpdate(locationId, { $push: { transportation: addTransportation._id } }, { new: true });
+        await Location.findOneAndUpdate({ _id: locationId }, { $push: { transportation: addTransportation._id } }, { new: true });
         return addTransportation;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -168,7 +168,7 @@ const resolvers = {
     addThingsToDo: async (parent, { locationId, city, state, address, phone, category, cost, images, reviews, starRating }, context) => {
       if (context.user) {
         const addThingsToDo = await ThingsToDo.create({ profileId: context.user._id, city, state, address, phone, category, cost, images, reviews, starRating });
-        await Location.findOneAndUpdate(locationId, { $push: { thingsToDo: addThingsToDo._id } }, { new: true });
+        await Location.findOneAndUpdate({ _id: locationId }, { $push: { thingsToDo: addThingsToDo._id } }, { new: true });
         return addThingsToDo;
       }
       throw new AuthenticationError("You need to be logged in!");
