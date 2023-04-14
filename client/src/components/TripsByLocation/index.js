@@ -2,18 +2,24 @@ import React from "react";
 
 const TripsByLocation = ({ trips }) => {
   console.log(trips);
+
   if (!trips.length) {
-    return <h3>No Trips Yet</h3>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <h3 className="text-3xl font-semibold text-gray-800">No Trips Yet</h3>
+      </div>
+    );
   }
 
   return (
-    <div>
+    <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       {trips &&
         trips.map((trip) => (
-          <div key={trip._id} id={trip._id} className="p-2 m-0 card-header bg-primary text-light m-2">
+          <div key={trip._id} id={trip._id} className="p-4 m-4 bg-white rounded-lg shadow-lg w-96 md:w-80">
             <div className="mb-3 card">
-              <h4>{trip.dateOfTrip}</h4>
+              <h4 className="text-xl font-bold">{trip.dateOfTrip}</h4>
             </div>
+            <button className="px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">ADD TO MY TRIPS</button>
           </div>
         ))}
     </div>
