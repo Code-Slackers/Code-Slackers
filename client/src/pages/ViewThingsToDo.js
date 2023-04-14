@@ -14,6 +14,7 @@ const ViewThingsToDo = () => {
     return <div>Loading...</div>;
   }
   const thingsToDo = data?.location.thingsToDo || [];
+  const location = data?.location || [];
   const addThingsToDoHandler = () => {
     window.location.assign(`/addThingsToDo`);
   };
@@ -23,7 +24,9 @@ const ViewThingsToDo = () => {
       <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="overflow-hidden bg-white shadow sm:rounded-lg">
           <div className="px-4 py-5 sm:px-6">
-            <h1 className="text-3xl font-bold text-gray-800">Things To Do in {thingsToDo[0]?.state}</h1>
+            <h1 className="text-3xl font-bold text-gray-800">
+              Things To Do in {location.city}, {location.state}
+            </h1>
           </div>
           <div className="px-4 py-5 border-t border-gray-200 sm:p-0">
             {loading ? (

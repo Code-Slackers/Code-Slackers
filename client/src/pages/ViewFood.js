@@ -17,6 +17,7 @@ const ViewFood = () => {
     );
   }
   const foods = data?.location.food || [];
+  const location = data?.location || [];
   const addFoodHandler = () => {
     window.location.assign(`/addFood`);
   };
@@ -36,7 +37,9 @@ const ViewFood = () => {
 
   return (
     <div className="container px-4 mx-auto mt-8">
-      <h1 className="text-3xl font-bold">{foods[0].state} Food</h1>
+      <h1 className="text-3xl font-bold">
+        {location.city}, {location.state} Food
+      </h1>
       <div className="flex items-center justify-between mt-4">
         <button className="px-4 py-2 text-white bg-blue-500 rounded-md" onClick={addFoodHandler}>
           ADD FOOD

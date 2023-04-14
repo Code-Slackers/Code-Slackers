@@ -17,6 +17,7 @@ const ViewLodging = () => {
     );
   }
   const lodgings = data?.location.lodging || [];
+  const location = data?.location || [];
   console.log(lodgings);
 
   const addLodgingHandler = () => {
@@ -38,7 +39,9 @@ const ViewLodging = () => {
 
   return (
     <div className="container px-4 mx-auto mt-8">
-      <h1 className="text-3xl font-bold">{lodgings[0].state} Lodging</h1>
+      <h1 className="text-3xl font-bold">
+        {location.city}, {location.state} Lodging
+      </h1>
       <div className="flex items-center justify-between mt-4">
         <button className="px-4 py-2 text-white bg-blue-500 rounded-md" onClick={addLodgingHandler}>
           ADD LODGING
