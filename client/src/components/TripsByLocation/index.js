@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const TripsByLocation = ({ trips }) => {
   console.log(trips);
+  const { locationId } = useParams();
 
   if (!trips.length) {
     return (
@@ -11,11 +13,22 @@ const TripsByLocation = ({ trips }) => {
     );
   }
 
+  const viewTrip = (tripId) => {
+    window.location.assign(`/selectedlocation/${locationId}/${tripId}`);
+  };
+
   return (
     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       {trips &&
         trips.map((trip) => (
-          <div key={trip._id} id={trip._id} className="p-4 m-4 bg-white rounded-lg shadow-lg w-96 md:w-80">
+          <div
+            key={trip._id}
+            id={trip._id}
+            className="p-4 m-4 bg-white rounded-lg shadow-lg w-96 md:w-80"
+            onClick={() => {
+              viewTrip(trip._id);
+            }}
+          >
             <div className="mb-3 card">
               <h4 className="text-xl font-bold">{trip.dateOfTrip}</h4>
             </div>

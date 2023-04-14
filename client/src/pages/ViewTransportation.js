@@ -17,6 +17,7 @@ const ViewTransportation = () => {
     );
   }
   const transportations = data?.location.transportation || [];
+  const location = data?.location || [];
 
   const addTransportationHandler = () => {
     window.location.assign(`/addTransportation`);
@@ -35,7 +36,9 @@ const ViewTransportation = () => {
 
   return (
     <div id={locationId} className="flex flex-col items-center">
-      <h1 className="mb-8 text-3xl font-bold">Transportation in {transportations[0].state}</h1>
+      <h1 className="mb-8 text-3xl font-bold">
+        Transportation in {location.city}, {location.state}
+      </h1>
       <div className="flex flex-col items-center">
         <button className="px-4 py-2 mb-8 text-white bg-blue-500 rounded hover:bg-blue-600" onClick={addTransportationHandler}>
           ADD TRANSPORTATION
