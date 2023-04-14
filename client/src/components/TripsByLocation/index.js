@@ -32,7 +32,9 @@ const TripsByLocation = ({ trips }) => {
             <div className="mb-3 card">
               <h4 className="text-xl font-bold">{trip.dateOfTrip}</h4>
             </div>
-            <button className="px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">ADD TO MY TRIPS</button>
+            <button className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-700">
+              CHECK IT OUT
+            </button>
           </div>
         ))}
     </div>

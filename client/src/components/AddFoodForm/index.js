@@ -9,7 +9,18 @@ import Auth from "../../utils/auth";
 
 const AddFoodForm = ({ locations }) => {
   const navigate = useNavigate();
-  const [formState, setFormState] = useState({ locationId: "", city: "", state: "", address: "", phone: "", category: "", cost: {}, images: [], reviews: [], starRating: {} });
+  const [formState, setFormState] = useState({
+    locationId: "",
+    city: "",
+    state: "",
+    address: "",
+    phone: "",
+    category: "",
+    cost: {},
+    images: [],
+    reviews: [],
+    starRating: {},
+  });
   const [addFood, { error, data }] = useMutation(ADD_FOOD);
 
   // update state based on form input changes
@@ -27,7 +38,9 @@ const AddFoodForm = ({ locations }) => {
     event.preventDefault();
     console.log(formState);
     try {
-      const images = document.getElementsByTagName("img")[0].getAttribute("data-id");
+      const images = document
+        .getElementsByTagName("img")[0]
+        .getAttribute("data-id");
 
       const { data } = await addFood({
         variables: { ...formState, images: [images] },
@@ -55,14 +68,21 @@ const AddFoodForm = ({ locations }) => {
 
   return (
     <div>
-      <h2 className="mb-5 text-center text-primary">Add Your New Food</h2>
-
       {Auth.loggedIn() ? (
         <div className="card border max-w-[40rem] mx-auto">
-          <form className="flex flex-col min-w-full mb-4" onSubmit={handleFormSubmit}>
+          <form
+            className="flex flex-col min-w-full mb-4"
+            onSubmit={handleFormSubmit}
+          >
             <div className="flex flex-col gap-4">
-              <select className="select select-primary" name="locationId" type="string" value={formState.locationId} onChange={handleChange}>
-                <option value="">Select a Location</option>
+              <select
+                className="select select-primary"
+                name="locationId"
+                type="string"
+                value={formState.locationId}
+                onChange={handleChange}
+              >
+                <option value="">Select A Location</option>
                 {locations &&
                   locations.map((location) => (
                     <option key={location._id} value={location._id}>
@@ -70,10 +90,30 @@ const AddFoodForm = ({ locations }) => {
                     </option>
                   ))}
               </select>
-              <input className="input input-primary" placeholder="address" name="address" type="string" value={formState.address} onChange={handleChange} />
-              <input className="input input-primary" placeholder="City" name="city" type="string" value={formState.city} onChange={handleChange} />
-              <select className="select select-primary" name="state" type="string" value={formState.state} onChange={handleChange}>
-                <option value="">Select a State</option>
+              <input
+                className="input input-primary"
+                placeholder="Address"
+                name="address"
+                type="string"
+                value={formState.address}
+                onChange={handleChange}
+              />
+              <input
+                className="input input-primary"
+                placeholder="City"
+                name="city"
+                type="string"
+                value={formState.city}
+                onChange={handleChange}
+              />
+              <select
+                className="select select-primary"
+                name="state"
+                type="string"
+                value={formState.state}
+                onChange={handleChange}
+              >
+                <option value="">Select A State</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -125,9 +165,22 @@ const AddFoodForm = ({ locations }) => {
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
               </select>
-              <input className="input input-primary" placeholder="phone" name="phone" type="string" value={formState.phone} onChange={handleChange} />
-              <select className="select select-primary" name="category" type="string" value={formState.category} onChange={handleChange}>
-                <option value="">Select a category</option>
+              <input
+                className="input input-primary"
+                placeholder="Phone"
+                name="phone"
+                type="string"
+                value={formState.phone}
+                onChange={handleChange}
+              />
+              <select
+                className="select select-primary"
+                name="category"
+                type="string"
+                value={formState.category}
+                onChange={handleChange}
+              >
+                <option value="">What kind of place is this?</option>
                 <option value="Fine Dining">Fine Dining</option>
                 <option value="Casual Dining">Casual Dining</option>
                 <option value="Fast Casual">Fast Casual</option>
@@ -140,8 +193,14 @@ const AddFoodForm = ({ locations }) => {
                 <option value="Club">Club</option>
                 <option value="Other">Other</option>
               </select>
-              <select className="select select-primary" name="cost" type="number" value={formState.cost} onChange={handleChange}>
-                <option>How would you Rate Cost</option>
+              <select
+                className="select select-primary"
+                name="cost"
+                type="number"
+                value={formState.cost}
+                onChange={handleChange}
+              >
+                <option>How would you rate the cost?</option>
 
                 <option value="$">1</option>
                 <option value="$$">2</option>
@@ -149,8 +208,14 @@ const AddFoodForm = ({ locations }) => {
                 <option value="$$$$">4</option>
                 <option value="$$$$$">5</option>
               </select>
-              <select className="select select-primary" name="starRating" type="number" value={formState.starRating} onChange={handleChange}>
-                <option>Star Rating</option>
+              <select
+                className="select select-primary"
+                name="starRating"
+                type="number"
+                value={formState.starRating}
+                onChange={handleChange}
+              >
+                <option>How many stars would you give?</option>
                 <option value="*">1</option>
                 <option value="**">2</option>
                 <option value="***">3</option>
@@ -172,10 +237,15 @@ const AddFoodForm = ({ locations }) => {
         </div>
       ) : (
         <p>
-          You need to be logged in to add food. Please <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          You need to be logged in to add food. Please{" "}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
-      {error && <div className="alert alert-error mt-5 max-w-[40rem] mx-auto">{error.message}</div>}
+      {error && (
+        <div className="alert alert-error mt-5 max-w-[40rem] mx-auto">
+          {error.message}
+        </div>
+      )}
     </div>
   );
 };

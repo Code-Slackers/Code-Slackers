@@ -10,7 +10,11 @@ import Auth from "../../utils/auth";
 const AddLocationForm = ({ profileId }) => {
   const navigate = useNavigate();
 
-  const [formState, setFormState] = useState({ city: "", state: "", images: [] });
+  const [formState, setFormState] = useState({
+    city: "",
+    state: "",
+    images: [],
+  });
   const [addLocation, { error, data }] = useMutation(ADD_LOCATION);
 
   // update state based on form input changes
@@ -28,7 +32,9 @@ const AddLocationForm = ({ profileId }) => {
     event.preventDefault();
     console.log(formState);
     try {
-      const images = document.getElementsByTagName("img")[0].getAttribute("data-id");
+      const images = document
+        .getElementsByTagName("img")[0]
+        .getAttribute("data-id");
       const { data } = await addLocation({
         variables: { ...formState, images: [images] },
       });
@@ -48,15 +54,28 @@ const AddLocationForm = ({ profileId }) => {
 
   return (
     <div>
-      <h2 className="text-center text-primary mb-5">Add your NEW location.</h2>
-
       {Auth.loggedIn() ? (
         <div className="card border max-w-[40rem] mx-auto">
           <form className="card-body" onSubmit={handleFormSubmit}>
             <div className="flex flex-col gap-4">
-              <input className="input input-primary" placeholder="City to add" name="city" type="string" value={formState.city} onChange={handleChange} required />
-              <select className="select select-primary" name="state" type="string" value={formState.state} onChange={handleChange} required>
-                <option value="">Select a State</option>
+              <input
+                className="input input-primary"
+                placeholder="Name of City"
+                name="city"
+                type="string"
+                value={formState.city}
+                onChange={handleChange}
+                required
+              />
+              <select
+                className="select select-primary"
+                name="state"
+                type="string"
+                value={formState.state}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select A State</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -122,10 +141,15 @@ const AddLocationForm = ({ profileId }) => {
         </div>
       ) : (
         <p>
-          You need to be logged in to add location. Please <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          You need to be logged in to add location. Please{" "}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
-      {error && <div className="alert alert-error mt-5 max-w-[40rem] mx-auto">{error?.message}</div>}
+      {error && (
+        <div className="alert alert-error mt-5 max-w-[40rem] mx-auto">
+          {error?.message}
+        </div>
+      )}
     </div>
   );
 };
