@@ -19,6 +19,14 @@ const LocationList = ({ locations }) => {
           <div key={location._id} id={location._id} className="mb-3 card" onClick={viewLocationHandler}>
             <h4 className="p-2 m-0 card-header bg-primary text-light">
               {location.city} {location.state} <br />
+              {!location.images[0] ? (
+                ""
+              ) : (
+                <div className="w-20 h-20">
+                  {" "}
+                  <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${location.images[0]}`} alt="food" />
+                </div>
+              )}
             </h4>
           </div>
         ))}

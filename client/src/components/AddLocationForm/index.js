@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
+import CloudinaryUploadWidget from "../CloudinaryUploadWidget";
 
 import { ADD_LOCATION } from "../../utils/mutations";
 
@@ -9,7 +10,7 @@ import Auth from "../../utils/auth";
 const AddLocationForm = ({ profileId }) => {
   const navigate = useNavigate();
 
-  const [formState, setFormState] = useState({ city: "", state: "" });
+  const [formState, setFormState] = useState({ city: "", state: "", images: [] });
   const [addLocation, { error, data }] = useMutation(ADD_LOCATION);
 
   // update state based on form input changes
@@ -27,8 +28,9 @@ const AddLocationForm = ({ profileId }) => {
     event.preventDefault();
     console.log(formState);
     try {
+      const images = document.getElementsByTagName("img")[0].getAttribute("data-id");
       const { data } = await addLocation({
-        variables: { ...formState },
+        variables: { ...formState, images: [images] },
       });
       console.log(data);
       navigate(-1);
@@ -40,6 +42,7 @@ const AddLocationForm = ({ profileId }) => {
     setFormState({
       city: "",
       state: "",
+      images: [],
     });
   };
 
@@ -110,6 +113,12 @@ const AddLocationForm = ({ profileId }) => {
               </button>
             </div>
           </form>
+          <div>
+            <div className="w-10 h-10">
+              <img id="image" data-id=""></img>
+            </div>
+            <CloudinaryUploadWidget />
+          </div>
         </div>
       ) : (
         <p>

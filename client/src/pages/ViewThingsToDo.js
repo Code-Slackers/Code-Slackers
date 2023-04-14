@@ -32,7 +32,14 @@ const ViewThingsToDo = () => {
             {loading ? (
               <div>Loading...</div>
             ) : thingsToDo.length ? (
-              <ThingsToDoByState thingsToDo={thingsToDo} />
+              <>
+                <div>
+                  <button className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" onClick={addThingsToDoHandler}>
+                    Add Things To Do
+                  </button>
+                </div>
+                <ThingsToDoByState thingsToDo={thingsToDo} />
+              </>
             ) : (
               <div className="flex flex-col items-center py-12">
                 <h3 className="mb-4 text-xl font-bold text-gray-800">No Things To Do Yet</h3>

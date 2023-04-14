@@ -91,9 +91,9 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    addLocation: async (parent, { city, state }, context) => {
+    addLocation: async (parent, { city, state, images }, context) => {
       if (context.user) {
-        const createLocation = await Location.create({ profileId: context.user._id, city, state });
+        const createLocation = await Location.create({ profileId: context.user._id, city, state, images });
         return createLocation;
       }
       throw new AuthenticationError("You need to be logged in!");

@@ -35,7 +35,14 @@ const ThingsToDoByState = ({ thingsToDo }) => {
             <div>
               {thingToDo.cost} {thingToDo.starRating}
             </div>
-            {!thingToDo.images.length ? null : <img src={thingToDo.images[0]} alt="thingToDo" />}
+            {!thingToDo.images[0] ? (
+              ""
+            ) : (
+              <div className="w-20">
+                {" "}
+                <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${thingToDo.images[0]}`} alt="food" />{" "}
+              </div>
+            )}
             <button
               onClick={() => {
                 addThingsToDoToTrip(thingToDo._id);

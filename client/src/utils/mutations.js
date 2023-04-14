@@ -25,8 +25,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_LOCATION = gql`
-  mutation Mutation($city: String!, $state: String!) {
-    addLocation(city: $city, state: $state) {
+  mutation Mutation($city: String!, $state: String!, $images: [String]) {
+    addLocation(city: $city, state: $state, images: $images) {
       _id
       city
       profileId
@@ -53,8 +53,8 @@ export const ADD_FOOD = gql`
 `;
 
 export const ADD_LODGING = gql`
-  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String) {
-    addLodging(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone) {
+  mutation Mutation($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String, $amenities: [String], $images: [String], $reviews: [String], $starRating: Int) {
+    addLodging(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone, amenities: $amenities, images: $images, reviews: $reviews, starRating: $starRating) {
       _id
       address
       starRating
@@ -80,8 +80,8 @@ export const ADD_TRANSPORTATION = gql`
 `;
 
 export const ADD_THINGS_TO_DO = gql`
-  mutation AddThingsToDo($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String) {
-    addThingsToDo(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone) {
+  mutation AddThingsToDo($locationId: ID!, $city: String!, $state: String!, $address: String!, $category: String!, $cost: Int!, $phone: String, $images: [String], $reviews: [String], $starRating: Int) {
+    addThingsToDo(locationId: $locationId, city: $city, state: $state, address: $address, category: $category, cost: $cost, phone: $phone, images: $images, reviews: $reviews, starRating: $starRating) {
       _id
       address
       category
