@@ -37,7 +37,8 @@ const TripById = (trip) => {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {trip.trip.dateOfTrip}
       </div>
-      <div className="flex">
+    
+
         <div>
           <h1>Food</h1>
           <div>
@@ -155,7 +156,8 @@ const TripById = (trip) => {
             Add or Update
           </button>
         </div>
-      </div>
+
+      
     </>
   );
 };
