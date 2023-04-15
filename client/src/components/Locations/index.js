@@ -18,24 +18,25 @@ const LocationList = ({ locations }) => {
           <div
             key={location._id}
             id={location._id}
-            className="mb-3 card"
+            className="mb-3 cursor-pointer card"
             onClick={viewLocationHandler}
           >
-            <div className="p-2 m-0 card-header border rounded-lg text-light flex">
-              {!location.images[0] ? (
-                ""
-              ) : (
-                <div className="w-20 h-20">
-                  {" "}
+            <div className="overflow-hidden bg-gray-800 rounded-lg shadow-lg">
+              <div className="relative pb-60%">
+                {!location.images[0] ? (
+                  <div className="absolute inset-0 bg-gray-300"></div>
+                ) : (
                   <img
+                    className="absolute inset-0 object-cover w-full h-full"
                     src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${location.images[0]}`}
                     alt="food"
                   />
-                </div>
-              )}
-              <h4 className="p-2 m-0 card-header text-light">
-                {location.city} <br />
-              </h4>
+                )}
+              </div>
+              <div className="p-4">
+                <h4 className="text-lg font-semibold text-gray-100">{location.city}</h4>
+                <span className="text-sm text-gray-400">{location.state}</span>
+              </div>
             </div>
           </div>
         ))}
