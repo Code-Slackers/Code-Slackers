@@ -6,7 +6,7 @@ import LodgingByState from "../components/LodgingByState/index.js";
 import { QUERY_LODGINGBYSTATE } from "../utils/queries";
 const ViewLodging = () => {
   const { locationId } = useParams();
-  const loca  = useLocation();
+  const loca = useLocation();
   const navigate = useNavigate();
   const { loading, data } = useQuery(QUERY_LODGINGBYSTATE, {
     variables: { locationId: locationId },
@@ -31,7 +31,10 @@ const ViewLodging = () => {
       <div className="container px-4 mx-auto mt-8">
         <h3 className="text-2xl font-bold text-center">No Lodging Yet</h3>
         <div className="flex justify-center mt-4">
-          <button className="px-4 py-2 text-white bg-blue-500 rounded-md" onClick={addLodgingHandler}>
+          <button
+            className="px-4 py-2 text-white bg-blue-500 rounded-md"
+            onClick={addLodgingHandler}
+          >
             ADD LODGING
           </button>
         </div>
@@ -46,21 +49,30 @@ const ViewLodging = () => {
           {location.city}, {location.state} Lodging
         </h1>
         {loca.pathname !== "/" && (
-            <button
-              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
-              onClick={() => navigate(-1)}
-            >
-              <ArrowLongLeftIcon className="w-5 h-5" />
-              Go Back
-            </button>
-          )}
+          <button
+            className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+            onClick={() => navigate(-1)}
+          >
+            <ArrowLongLeftIcon className="w-5 h-5" />
+            Back
+          </button>
+        )}
       </div>
       <div className="flex items-center justify-between mt-4">
-        <button className="px-4 py-2 text-white bg-blue-500 rounded-md" onClick={addLodgingHandler}>
+        <button
+          className="px-4 py-2 text-white bg-blue-500 rounded-md"
+          onClick={addLodgingHandler}
+        >
           ADD LODGING
         </button>
       </div>
-      <div className="mt-8">{loading ? <div className="spinner"></div> : <LodgingByState lodgings={lodgings} />}</div>
+      <div className="mt-8">
+        {loading ? (
+          <div className="spinner"></div>
+        ) : (
+          <LodgingByState lodgings={lodgings} />
+        )}
+      </div>
     </div>
   );
 };

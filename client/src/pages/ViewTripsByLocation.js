@@ -42,22 +42,25 @@ const ViewTripsByLocation = () => {
         </button>
       </div>
     );
-  } 
+  }
   return (
-    <div id={locationId} className="flex flex-col items-center py-4 max-w-screen-md mx-auto space-y-8">
+    <div
+      id={locationId}
+      className="flex flex-col items-center py-4 max-w-screen-md mx-auto space-y-8"
+    >
       <div className="flex justify-between items-center flex-wrap gap-4 w-full">
-      <h1 className="text-3xl font-semibold text-gray-800">
-        {city}, Here We Come
+        <h1 className="text-3xl font-semibold text-gray-800">
+          {city}, Here We Come
         </h1>
         {location.pathname !== "/" && (
-            <button
-              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
-              onClick={() => navigate(-1)}
-            >
-              <ArrowLongLeftIcon className="w-5 h-5" />
-              Go Back
-            </button>
-          )}
+          <button
+            className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+            onClick={() => navigate(-1)}
+          >
+            <ArrowLongLeftIcon className="w-5 h-5" />
+            Back
+          </button>
+        )}
       </div>
       <div className="w-full">
         <button
@@ -70,7 +73,11 @@ const ViewTripsByLocation = () => {
           Looking for inspiration? Check out past trips below to make your own.
         </p>
         <div>
-          {loading ? <div className="text-center text-lg font-medium">Loading...</div> : <TripsByLocation trips={trips} />}
+          {loading ? (
+            <div className="text-center text-lg font-medium">Loading...</div>
+          ) : (
+            <TripsByLocation trips={trips} />
+          )}
         </div>
       </div>
     </div>

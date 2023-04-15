@@ -32,7 +32,7 @@ const QueryLocation = () => {
               onClick={() => navigate(-1)}
             >
               <ArrowLongLeftIcon className="w-5 h-5" />
-              Go Back
+              Back
             </button>
           )}
         </div>
@@ -45,13 +45,17 @@ const QueryLocation = () => {
           <div className="mb-6">
             <div className=" ">
               {loading ? (
-                <div className="text-center text-lg font-medium">Loading...</div>
+                <div className="text-center text-lg font-medium">
+                  Loading...
+                </div>
               ) : (
                 <LocationList locations={locationFilter} />
               )}
             </div>
           </div>
-          <p className="text-base pb-4">Don't see the city you want to visit? Add it to the list.</p>
+          <p className="text-base pb-4">
+            Don't see the city you want to visit? Add it to the list.
+          </p>
           <button
             id="addLocationButton"
             className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all  hover:text-white"
