@@ -30,15 +30,15 @@ const ViewSelection = () => {
   return (
     <div
       id={params.locationId}
-      className="py-6 max-w-screen-md mx-auto"
+      className="max-w-screen-md py-6 mx-auto"
     >
-      <div className="flex mb-8 justify-between items-center flex-wrap gap-4">
-      <h1 className=" text-3xl font-bold">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+      <h1 className="text-3xl font-bold ">
         Your Trip to {data.location.city}, {data.location.state}
         </h1>
         {location.pathname !== "/" && (
             <button
-              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+              className="flex items-center gap-2 px-4 py-2 text-black transition-all rounded-lg bg-secondary hover:bg-brand-yellow hover:text-white "
               onClick={() => navigate(-1)}
             >
               <ArrowLongLeftIcon className="w-5 h-5" />
@@ -54,7 +54,7 @@ const ViewSelection = () => {
         If you're checking out a past trip's items, feel free to update them.
       </p> 
       <div>
-        <h2 className="mt-8 text-2xl font-bold">This Trip</h2>
+        <h2 className="mt-8 text-xl font-bold">Travel Date:</h2>
         {trip.loading ? (
           <div className="spinner"></div>
         ) : (
