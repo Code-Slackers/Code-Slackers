@@ -1,6 +1,6 @@
+import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useMutation } from "@apollo/client";
 
 import { ADD_TRANSPORTATION } from "../../utils/mutations";
 
@@ -56,7 +56,7 @@ const AddTransportationForm = ({ locations }) => {
   return (
     <div>
       {Auth.loggedIn() ? (
-        <div className="card border max-w-[40rem] mx-auto">
+        <div className="card max-w-screen-md mx-auto">
           <form
             className="flex flex-col min-w-full mb-4"
             onSubmit={handleFormSubmit}

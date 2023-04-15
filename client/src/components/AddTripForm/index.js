@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { useParams } from "react-router-dom";
-
+import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
+import React, { useState } from "react";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { ADD_TRIP } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
 const AddTripForm = ({ locations }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const params = useParams();
   const [formState, setFormState] = useState({
     locationId: params.locationId,
@@ -50,11 +51,21 @@ const AddTripForm = ({ locations }) => {
   }
 
   return (
-    <div>
-      <h2 className="mb-5 text-center text-primary">Build Your Own Trip</h2>
-
+    <div className="max-w-screen-md mx-auto space-y-8">
+      <div className="flex justify-between items-center flex-wrap gap-4">
+      <h2 className=" text-center text-primary">Build Your Own Trip</h2>
+      {location.pathname !== "/" && (
+            <button
+              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+              onClick={() => navigate(-1)}
+            >
+              <ArrowLongLeftIcon className="w-5 h-5" />
+              Go Back
+            </button>
+          )}
+      </div>
       {Auth.loggedIn() ? (
-        <div className="card border max-w-[40rem] mx-auto">
+        <div className="card border  ">
           <form className="card-body" onSubmit={handleFormSubmit}>
             <div className="flex flex-col gap-4">
               <select

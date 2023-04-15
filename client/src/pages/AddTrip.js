@@ -1,8 +1,7 @@
-import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_LOCATIONS } from "../utils/queries";
+import React from "react";
 import AddTripForm from "../components/AddTripForm";
-import AddLocationForm from "../components/AddLocationForm";
+import { QUERY_LOCATIONS } from "../utils/queries";
 
 const AddTrip = () => {
   const { loading, data } = useQuery(QUERY_LOCATIONS);
@@ -11,7 +10,7 @@ const AddTrip = () => {
   return (
     <div className="py-5">
       {loading ? (
-        <div>Loading...</div>
+        <div className="text-center text-lg font-medium">Loading...</div>
       ) : (
         <div>
           <AddTripForm locations={locations} />

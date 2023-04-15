@@ -1,10 +1,12 @@
-import React from "react";
-import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_LOCATIONS } from "../utils/queries";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
+import React from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import LocationList from "../components/Locations/index.js";
-
+import { QUERY_LOCATIONS } from "../utils/queries";
 const QueryLocation = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const params = useParams();
   const { loading, data } = useQuery(QUERY_LOCATIONS);
   const locations = data?.locations || [];
@@ -20,10 +22,19 @@ const QueryLocation = () => {
   };
 
   return (
-    <main className="container px-4 mx-auto">
+    <main className="max-w-screen-md mx-auto">
       <div className="mt-8 mb-12 overflow-hidden bg-white rounded-lg shadow-lg">
-        <div className="px-6 py-4 text-white bg-primary">
+        <div className="px-6 py-4 text-white bg-primary flex justify-between items-center flex-wrap gap-4 w-full">
           <h1 className="text-2xl font-bold">Cities to Visit</h1>
+          {location.pathname !== "/" && (
+            <button
+              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+              onClick={() => navigate(-1)}
+            >
+              <ArrowLongLeftIcon className="w-5 h-5" />
+              Go Back
+            </button>
+          )}
         </div>
         <div className="p-6">
           <div className="mb-6">
@@ -32,18 +43,18 @@ const QueryLocation = () => {
             </h2>
           </div>
           <div className="mb-6">
-            <div className="p-4">
+            <div className=" ">
               {loading ? (
-                <div>Loading...</div>
+                <div className="text-center text-lg font-medium">Loading...</div>
               ) : (
                 <LocationList locations={locationFilter} />
               )}
             </div>
           </div>
-          <p>Don't see the city you want to visit? Add it to the list.</p>
+          <p className="text-base pb-4">Don't see the city you want to visit? Add it to the list.</p>
           <button
             id="addLocationButton"
-            className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-primary hover:text-white"
+            className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all  hover:text-white"
             type="submit"
             onClick={addLocationHandler}
           >

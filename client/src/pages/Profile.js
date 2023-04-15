@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { Navigate, useParams } from 'react-router-dom';
 
-import SkillsList from '../components/SkillsList';
 import SkillForm from '../components/SkillForm';
+import SkillsList from '../components/SkillsList';
 
-import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
+import { QUERY_ME, QUERY_SINGLE_PROFILE } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -30,7 +30,7 @@ const Profile = () => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="text-center text-lg font-medium">Loading...</div>;
   }
 
   if (!profile?.name) {

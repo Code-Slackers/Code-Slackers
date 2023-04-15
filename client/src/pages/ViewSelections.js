@@ -1,10 +1,12 @@
-import React from "react";
-import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_LOCATION, QUERY_TRIP } from "../utils/queries";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
+import React from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import TripById from "../components/TripById/index.js";
-
+import { QUERY_LOCATION, QUERY_TRIP } from "../utils/queries";
 const ViewSelection = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const params = useParams();
   const locationId = params.locationId;
 
@@ -28,19 +30,29 @@ const ViewSelection = () => {
   return (
     <div
       id={params.locationId}
-      className="flex flex-col items-center justify-center h-screen"
+      className="py-6 max-w-screen-md mx-auto"
     >
-      <h1 className="mb-8 text-3xl font-bold">
+      <div className="flex mb-8 justify-between items-center flex-wrap gap-4">
+      <h1 className=" text-3xl font-bold">
         Your Trip to {data.location.city}, {data.location.state}
-      </h1>
+        </h1>
+        {location.pathname !== "/" && (
+            <button
+              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+              onClick={() => navigate(-1)}
+            >
+              <ArrowLongLeftIcon className="w-5 h-5" />
+              Go Back
+            </button>
+          )}
+      </div>
       <p className="font-bold">
         Here's where you'll find all the key details for your trip.
       </p>
       <p>If you're building your own, start adding items to each category.</p>
       <p>
         If you're checking out a past trip's items, feel free to update them.
-      </p>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4"></div>
+      </p> 
       <div>
         <h2 className="mt-8 text-2xl font-bold">This Trip</h2>
         {trip.loading ? (

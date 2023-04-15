@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { UPDATE_TRIP } from "../../utils/mutations";
-import { useParams, useNavigate } from "react-router-dom";
 
 const LodgingByState = ({ lodgings }) => {
   const { tripId } = useParams();
@@ -29,27 +29,27 @@ const LodgingByState = ({ lodgings }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2">
       {lodgings.map((lodging) => (
         <div
           key={lodging._id}
           id={lodging._id}
-          className="p-4 border border-gray-300 rounded-md shadow-lg"
+          className="p-4 sm:p-6 border border-gray-200 rounded-md shadow-lg space-y-6"
         >
-          <div className="mb-3 card">
+          <div className="card">
             <h4 className="mb-2 text-lg font-semibold text-primary">{lodging.category}</h4>
           </div>
-          <div className="mb-3 text-gray-600">
+          <div className=" text-gray-600">
             <p>{lodging.address} {lodging.state}</p>
             <p>{lodging.cost} {lodging.starRating}</p>
           </div>
 
           {lodging.images[0] ? (
             <div className="w-full mb-2">
-              <img
+              <img  
                 src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${lodging.images[0]}`}
                 alt="lodging"
-                className="w-full rounded-md"
+                className="w-full rounded-md h-[250px] object-cover"
               />
             </div>
           ) : null}

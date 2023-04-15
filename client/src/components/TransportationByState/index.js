@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { UPDATE_TRIP } from "../../utils/mutations";
-import { useParams, useNavigate } from "react-router-dom";
 
 const TransportationByState = ({ transportations }) => {
   const { tripId } = useParams();
@@ -25,9 +25,9 @@ const TransportationByState = ({ transportations }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mb-12">
       {transportations.map((transportation) => (
-        <div key={transportation._id} className="p-4 bg-white rounded-lg shadow-md">
+        <div key={transportation._id} className="p-4 bg-white rounded-lg shadow hover:shadow-md">
           <div className="mb-3 card">
             <h4 className="text-lg font-bold">{transportation.category}</h4>
           </div>

@@ -1,6 +1,6 @@
+import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useMutation } from "@apollo/client";
 import CloudinaryUploadWidget from "../CloudinaryUploadWidget";
 
 import { ADD_LOCATION } from "../../utils/mutations";
@@ -55,8 +55,8 @@ const AddLocationForm = ({ profileId }) => {
   return (
     <div>
       {Auth.loggedIn() ? (
-        <div className="card border max-w-[40rem] mx-auto">
-          <form className="card-body" onSubmit={handleFormSubmit}>
+        <div className="card border max-w-screen-lg  mx-auto">
+          <form className="card-body p-4 sm:p-8" onSubmit={handleFormSubmit}>
             <div className="flex flex-col gap-4">
               <input
                 className="input input-primary"
@@ -132,7 +132,7 @@ const AddLocationForm = ({ profileId }) => {
               </button>
             </div>
           </form>
-          <div>
+          <div className="px-8 pb-6">
             <div className="w-10 h-10">
               <img id="image" data-id=""></img>
             </div>

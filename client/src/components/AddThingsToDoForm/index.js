@@ -1,6 +1,6 @@
+import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useMutation } from "@apollo/client";
 import CloudinaryUploadWidget from "../CloudinaryUploadWidget";
 
 import { ADD_THINGS_TO_DO } from "../../utils/mutations";
@@ -68,7 +68,7 @@ const AddThingsToDoForm = ({ locations }) => {
   return (
     <div>
       {Auth.loggedIn() ? (
-        <div className="card border max-w-[40rem] mx-auto">
+        <div className="card   max-w-[40rem] mx-auto">
           <form
             className="flex flex-col min-w-full mb-4"
             onSubmit={handleFormSubmit}
@@ -221,11 +221,11 @@ const AddThingsToDoForm = ({ locations }) => {
                 onChange={handleChange}
               >
                 <option>How many stars would you give?</option>
-                <option value="⭐️">1</option>
-                <option value="⭐️⭐️">2</option>
-                <option value="⭐️⭐️⭐️">3</option>
-                <option value="⭐️⭐️⭐️⭐️">4</option>
-                <option value="⭐️⭐️⭐️⭐️⭐️">5</option>
+                <option value="*">1</option>
+                <option value="**">2</option>
+                <option value="***">3</option>
+                <option value="****">4</option>
+                <option value="*****">5</option>
               </select>
               <button className="mt-4 text-white btn btn-primary" type="submit">
                 Submit
