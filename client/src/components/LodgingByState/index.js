@@ -7,13 +7,9 @@ const LodgingByState = ({ lodgings }) => {
   const { tripId } = useParams();
   const navigate = useNavigate();
   const [addLodging, { error }] = useMutation(UPDATE_TRIP);
-  
+
   if (!lodgings.length) {
-    return (
-      <div className="my-6 text-lg font-semibold text-center text-gray-500">
-        No Lodging Yet
-      </div>
-    );
+    return <div className="my-6 text-lg font-semibold text-center text-gray-500">No Lodging Yet</div>;
   }
 
   const addLodgingToTrip = async (lodgingId) => {
@@ -31,26 +27,21 @@ const LodgingByState = ({ lodgings }) => {
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2">
       {lodgings.map((lodging) => (
-        <div
-          key={lodging._id}
-          id={lodging._id}
-          className="p-4 sm:p-6 border border-gray-200 rounded-md shadow-lg space-y-6"
-        >
+        <div key={lodging._id} id={lodging._id} className="p-4 space-y-6 border border-gray-200 rounded-md shadow-lg sm:p-6">
           <div className="card">
             <h4 className="mb-2 text-lg font-semibold text-primary">{lodging.category}</h4>
           </div>
-          <div className=" text-gray-600">
-            <p>{lodging.address} {lodging.state}</p>
-            <p>{lodging.cost} {lodging.starRating}</p>
+          <div className="text-gray-600 ">
+            <p>
+              {lodging.address} {lodging.state}
+            </p>
+            <p>{lodging.cost} </p>
+            <p className="text-3xl text-brand-yellow">{lodging.starRating}</p>
           </div>
 
           {lodging.images[0] ? (
             <div className="w-full mb-2">
-              <img  
-                src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${lodging.images[0]}`}
-                alt="lodging"
-                className="w-full rounded-md h-[250px] object-cover"
-              />
+              <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${lodging.images[0]}`} alt="lodging" className="w-full rounded-md h-[250px] object-cover" />
             </div>
           ) : null}
           <button
