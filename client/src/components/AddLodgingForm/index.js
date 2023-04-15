@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
+import React, { useState } from "react";
+
+import { Link, useNavigate } from "react-router-dom";
 import CloudinaryUploadWidget from "../CloudinaryUploadWidget";
 
 import { ADD_LODGING } from "../../utils/mutations";
@@ -71,7 +72,7 @@ const AddLodgingForm = ({ locations }) => {
   return (
     <div>
       {Auth.loggedIn() ? (
-        <div className="card border max-w-[40rem] mx-auto">
+        <div className="card max-w-[40rem] mx-auto">
           <form
             className="flex flex-col min-w-full mb-4"
             onSubmit={handleFormSubmit}
@@ -222,14 +223,14 @@ const AddLodgingForm = ({ locations }) => {
                 onChange={handleChange}
               >
                 <option>How many stars would you give?</option>
-                <option value="⭐️">1</option>
-                <option value="⭐️⭐️">2</option>
-                <option value="⭐️⭐️⭐️">3</option>
-                <option value="⭐️⭐️⭐️⭐️">4</option>
-                <option value="⭐️⭐️⭐️⭐️⭐️">5</option>
+                <option value="*">1</option>
+                <option value="**">2</option>
+                <option value="***">3</option>
+                <option value="****">4</option>
+                <option value="*****">5</option>
               </select>
               <button
-                className="px-4 py-1 mt-4 text-lg text-white rounded-md bg-primary hover:bg-white hover:text-primary"
+                className="px-4 py-2 mt-4 text-lg text-white rounded-md bg-primary hover:bg-white hover:text-primary"
                 type="submit"
               >
                 Submit

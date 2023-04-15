@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { UPDATE_TRIP } from "../../utils/mutations";
 
@@ -26,9 +26,9 @@ const FoodByState = ({ foods }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 ">
       {foods.map((food) => (
-        <div key={food._id} className="p-6 border rounded-lg shadow-md">
+        <div key={food._id} className="p-4 sm:p-6 border rounded-lg shadow-md">
           <div className="mb-3 card">
             <h4 className="text-lg font-medium">{food.category}</h4>
           </div>

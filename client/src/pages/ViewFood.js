@@ -1,10 +1,12 @@
-import React from "react";
-import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_FOODBYSTATE } from "../utils/queries";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
+import React from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import FoodByState from "../components/FoodByState/index.js";
-
+import { QUERY_FOODBYSTATE } from "../utils/queries";
 const ViewFood = () => {
+  const loca  = useLocation();
+  const navigate = useNavigate();
   const { locationId, tripId } = useParams();
   const { loading, data } = useQuery(QUERY_FOODBYSTATE, {
     variables: { locationId: locationId },
@@ -36,16 +38,27 @@ const ViewFood = () => {
   }
 
   return (
-    <div className="container px-4 mx-auto mt-8">
+    <div className="max-w-screen-lg mx-auto my-10">
+        <div className="flex justify-between items-center flex-wrap gap-4 w-full">
       <h1 className="text-3xl font-bold">
         {location.city}, {location.state} Food
       </h1>
+      {loca.pathname !== "/" && (
+            <button
+              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+              onClick={() => navigate(-1)}
+            >
+              <ArrowLongLeftIcon className="w-5 h-5" />
+              Go Back
+            </button>
+      )}
+      </div>
       <div className="flex items-center justify-between mt-4">
         <button className="px-4 py-2 text-white bg-blue-500 rounded-md" onClick={addFoodHandler}>
           ADD FOOD
         </button>
       </div>
-      <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 md:grid-cols-3">{loading ? <div className="spinner"></div> : <FoodByState foods={foods} trip={tripId} />}</div>
+      <div className="w-full mt-10 ">{loading ? <div className="spinner"></div> : <FoodByState foods={foods} trip={tripId} />}</div>
     </div>
   );
 };

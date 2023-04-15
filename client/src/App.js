@@ -1,27 +1,27 @@
-import React from "react";
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
+import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Auth from "./utils/auth";
 
-import Home from "./pages/Home";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
-import AddTrip from "./pages/AddTrip";
-import AddLocation from "./pages/AddLocation";
+import Header from "./components/Header";
 import AddFood from "./pages/AddFood";
-import UpdateFood from "./pages/UpdateFood";
+import AddLocation from "./pages/AddLocation";
 import AddLodging from "./pages/AddLodging";
-import AddTransportation from "./pages/AddTransportation";
 import AddThingsToDo from "./pages/AddThingsToDo";
+import AddTransportation from "./pages/AddTransportation";
+import AddTrip from "./pages/AddTrip";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 import QueryLocation from "./pages/QueryLocation";
-import ViewSelections from "./pages/ViewSelections";
+import Signup from "./pages/Signup";
+import UpdateFood from "./pages/UpdateFood";
 import ViewFood from "./pages/ViewFood";
-import ViewTransportation from "./pages/ViewTransportation";
-import ViewThingsToDo from "./pages/ViewThingsToDo";
 import ViewLodging from "./pages/ViewLodging";
+import ViewSelections from "./pages/ViewSelections";
+import ViewThingsToDo from "./pages/ViewThingsToDo";
+import ViewTransportation from "./pages/ViewTransportation";
 import ViewTripsByLocation from "./pages/ViewTripsByLocation";
 
 const httpLink = createHttpLink({
@@ -52,8 +52,8 @@ function App() {
         <div className="flex flex-col justify-start min-h-screen ">
           <Header />
 
-          <div className="flex flex-1">
-            <main className="container px-2 mx-auto">
+          <div className="flex flex-1 px-4 ">
+            <main className="container mx-auto">
               <Routes>
                 {Auth.loggedIn() ? (
                   <>
