@@ -221,11 +221,11 @@ const AddThingsToDoForm = ({ locations }) => {
                 onChange={handleChange}
               >
                 <option>How many stars would you give?</option>
-                <option value="*">1</option>
-                <option value="**">2</option>
-                <option value="***">3</option>
-                <option value="****">4</option>
-                <option value="*****">5</option>
+                <option value="⭐️">1</option>
+                <option value="⭐️⭐️">2</option>
+                <option value="⭐️⭐️⭐️">3</option>
+                <option value="⭐️⭐️⭐️⭐️">4</option>
+                <option value="⭐️⭐️⭐️⭐️⭐️">5</option>
               </select>
               <button className="mt-4 text-white btn btn-primary" type="submit">
                 Submit

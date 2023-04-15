@@ -222,11 +222,11 @@ const AddLodgingForm = ({ locations }) => {
                 onChange={handleChange}
               >
                 <option>How many stars would you give?</option>
-                <option value="*">1</option>
-                <option value="**">2</option>
-                <option value="***">3</option>
-                <option value="****">4</option>
-                <option value="*****">5</option>
+                <option value="⭐️">1</option>
+                <option value="⭐️⭐️">2</option>
+                <option value="⭐️⭐️⭐️">3</option>
+                <option value="⭐️⭐️⭐️⭐️">4</option>
+                <option value="⭐️⭐️⭐️⭐️⭐️">5</option>
               </select>
               <button
                 className="px-4 py-1 mt-4 text-lg text-white rounded-md bg-primary hover:bg-white hover:text-primary"
