@@ -1,28 +1,42 @@
-# Pass JWT to Resolver with Context (Server-side)
+# tripr.com | Find Your Next Adventure
 
-In this demo, you will verify if a token is valid and carry
+We the Code Slackers have conceived and executed a design to make travel to cities across the U.S. more accessible to folks who are ready for an adventure.
 
-## Instructions
+Introducing the tripr travel platform. With this platform, users (aka triprs) can explore or share the hidden gems of their future or past travel destinations based on user-generated content features. From the latest restaurants to vetted transportation options, every tripr can be set up for success during their travels.
 
-* Run `npm install` and `npm run seed` to set up the database.
+## The Development
 
-* Open [server.js](server/server.js) and explain the following:
+In creating our first collaborative MERN-stack single-page application, we've combined a scalable MongoDB backend, a GraphQL API and an Express.js and Node.js server with a React front end—implementing user authentication with JWT to build a user-focused platform.
 
-  * We can add another option to our Apollo Server configuration called `context`, which is a lot like middleware in Express.
+Additional dependencies and tools we used include Cloudinary for our image upload feature and daisyUI for a more efficient use of Tailwind CSS components.
 
-  * This will allow us to intercept any request to the server and check if there's a valid JWT before the request gets to the resolver.
+Building on agile development methodologies, we aligned on best practices to store our project code in GitHub, managed our workstream via Trello and implemented feature and bug fixes using the Git branch workflow and pull requests.
 
-* Open [auth.js](server/utils/auth.js) and explain the `authMiddleware` function:
+## Acceptance Criteria
 
-  * Whenever we make a request to our server, we will check if there's a token with the request and attempt to verify and decode it if there is.
+IF someone visits the tripr site<br />
+THEN they are prompted to sign up or log in before interacting
 
-  * We use the `return` statement to return the `req` object, either modified with user data or not modified at all, and the request will continue to go to its intended resolver function.
+IF a user selects one of the states on the homepage's map of the US<br />
+THEN they can view a list of the selected state's cities that other triprs have visited or add a new city
 
-* Open [resolvers.js](server/schemas/resolvers.js) and explain the following:
+IF a user adds a new city<br />
+THEN they are able to specify the city's name and state and upload an image of that city
 
-  * Any time we need to implement authentication on a query or mutation, we can add a third parameter called `context` to the resolver function.
+IF a user selects a listed city<br />
+THEN they can build their own trip to that city or check out past trips taken by other triprs
 
-  * The `context` object is whatever has been returned from our `authMiddleware` function, so it may or may not include a `user` property depending on the status of the JSON Web Token.
+IF a user builds their own trip<br />
+THEN they can add their own Food, Transporation, Things To Do & Lodging items
 
-  * If there is a `user` property, we can assume the user's token has been verified and the `user` property now holds data about the user that we stored in the token itself.
+IF a user checks out a past trip<br />
+THEN they'll have a pre-populated set of Food, Transporation, Things To Do & Lodging items they can update to another item from the site's database or add a new item
 
+IF a user adds a new trip item<br />
+THEN they can add that trip item's details to the site's corresponding database
+
+## Check It Out
+
+![](PNG OF TRIPR HOMEPAGE)
+
+[Visit tripr.com today](INSERT HEROKU LINK)
