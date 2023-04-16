@@ -35,7 +35,7 @@ const ViewSelection = () => {
         </h1>
         {location.pathname !== "/" && (
           <button
-            className="flex items-center gap-2 px-4 py-2 text-black transition-all rounded-lg bg-secondary hover:bg-brand-yellow hover:text-white "
+            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
             onClick={() => navigate(-1)}
           >
             <ArrowLongLeftIcon className="w-5 h-5" />

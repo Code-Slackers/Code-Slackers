@@ -56,7 +56,7 @@ const AddTripForm = ({ locations }) => {
         <h2 className=" text-center text-primary">Build Your Own Trip</h2>
         {location.pathname !== "/" && (
           <button
-            className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
             onClick={() => navigate(-1)}
           >
             <ArrowLongLeftIcon className="w-5 h-5" />
@@ -93,8 +93,11 @@ const AddTripForm = ({ locations }) => {
                 onChange={handleChange}
                 required
               />
-              <button className="mt-4 text-white btn btn-primary" type="submit">
-                Submit
+              <button
+                className="mt-4 text-white btn bg-black hover:bg-primary"
+                type="submit"
+              >
+                GET STARTED
               </button>
             </div>
           </form>

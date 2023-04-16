@@ -32,14 +32,16 @@ const ViewTripsByLocation = () => {
 
   if (!trips.length) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen">
-        <div className="text-3xl font-semibold text-gray-800">No Trips Yet</div>
-        <button
-          onClick={newTripHandler}
-          className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
-        >
-          BUILD YOUR OWN TRIP
-        </button>
+      <div className="container px-4 mx-auto mt-8">
+        <div className="text-2xl font-bold text-center">No Trips Yet</div>
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={newTripHandler}
+            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2"
+          >
+            BUILD YOUR OWN TRIP
+          </button>
+        </div>
       </div>
     );
   }
@@ -54,7 +56,7 @@ const ViewTripsByLocation = () => {
         </h1>
         {location.pathname !== "/" && (
           <button
-            className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
             onClick={() => navigate(-1)}
           >
             <ArrowLongLeftIcon className="w-5 h-5" />
@@ -62,16 +64,17 @@ const ViewTripsByLocation = () => {
           </button>
         )}
       </div>
-      <div className="w-full">
+      <div className="w-full text-center">
+        <p>
+          Make your own travel plans or check out other triprs' plans to get
+          inspired.
+        </p>
         <button
           onClick={newTripHandler}
-          className="px-4 py-2 font-bold mb-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+          className="px-4 py-3 my-5 mb-4 text-white bg-black rounded-lg hover:bg-primary hover:text-white"
         >
           BUILD YOUR OWN TRIP
         </button>
-        <p>
-          Looking for inspiration? Check out past trips below to make your own.
-        </p>
         <div>
           {loading ? (
             <div className="text-center text-lg font-medium">Loading...</div>

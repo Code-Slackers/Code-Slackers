@@ -28,7 +28,7 @@ const QueryLocation = () => {
           <h1 className="text-2xl font-bold">Cities to Visit</h1>
           {location.pathname !== "/" && (
             <button
-              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+              className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
               onClick={() => navigate(-1)}
             >
               <ArrowLongLeftIcon className="w-5 h-5" />
@@ -53,17 +53,19 @@ const QueryLocation = () => {
               )}
             </div>
           </div>
-          <p className="text-base pb-4">
-            Don't see the city you want to visit? Add it to the list.
-          </p>
-          <button
-            id="addLocationButton"
-            className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all  hover:text-white"
-            type="submit"
-            onClick={addLocationHandler}
-          >
-            ADD A CITY
-          </button>
+          <div className="text-center justify-center">
+            <p className="text-base pb-4">
+              Don't see your travel destination? Add it to the list.
+            </p>
+            <button
+              id="addLocationButton"
+              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all"
+              type="submit"
+              onClick={addLocationHandler}
+            >
+              ADD A CITY
+            </button>
+          </div>
         </div>
       </div>
     </main>

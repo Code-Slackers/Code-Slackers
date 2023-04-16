@@ -33,7 +33,7 @@ const ViewTransportation = () => {
           No Transportation Yet
         </h3>
         <button
-          className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+          className="px-4 py-2 text-white bg-black rounded hover:bg-primary"
           onClick={addTransportationHandler}
         >
           ADD TRANSPORTATION
@@ -46,11 +46,11 @@ const ViewTransportation = () => {
     <div id={locationId} className="max-w-screen-md mx-auto py-6">
       <div className="flex justify-between items-center flex-wrap gap-4 w-full mb-8 ">
         <h1 className="text-3xl font-bold">
-          Transportation in {location.city}, {location.state}
+          Transportation in {location.city}
         </h1>
         {locati.pathname !== "/" && (
           <button
-            className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
             onClick={() => navigate(-1)}
           >
             <ArrowLongLeftIcon className="w-5 h-5" />
@@ -59,18 +59,23 @@ const ViewTransportation = () => {
         )}
       </div>
       <div className="max-w-screen-md mx-auto">
-        <button
-          className="px-4 py-2 mb-8 text-white bg-blue-500 rounded hover:bg-blue-600"
-          onClick={addTransportationHandler}
-        >
-          ADD TRANSPORTATION
-        </button>
         <div>
           {loading ? (
             <div>Loading...</div>
           ) : (
             <TransportationByState transportations={transportations} />
           )}
+        </div>
+        <div className="my-8 text-center">
+          <p>Have something in mind you don't see here?</p>
+        </div>
+        <div className="flex items-center justify-center mt-4">
+          <button
+            className="px-4 py-2 text-black bg-secondary rounded-md hover:bg-brand-yellow"
+            onClick={addTransportationHandler}
+          >
+            ADD TRANSPORTATION
+          </button>
         </div>
       </div>
     </div>

@@ -13,11 +13,11 @@ const AddThingsToDo = () => {
     <main className="max-w-screen-md mx-auto">
       <div className="flex flex-col items-center justify-center mt-8">
         <div className="w-full  ">
-          <div className="px-6 py-4 text-white bg-blue-500  flex justify-between items-center flex-wrap gap-4 w-full">
+          <div className="px-6 py-4 text-white bg-primary  flex justify-between items-center flex-wrap gap-4 w-full">
             <h1 className="text-2xl font-bold">Add Things to Do</h1>
             {location.pathname !== "/" && (
               <button
-                className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+                className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
                 onClick={() => navigate(-1)}
               >
                 <ArrowLongLeftIcon className="w-5 h-5" />

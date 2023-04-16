@@ -17,9 +17,9 @@ const TripsByLocation = ({ trips }) => {
     window.location.assign(`/selectedlocation/${locationId}/${tripId}`);
   };
 
-  return ( 
+  return (
     <div className="mx-auto max-w-screen-md mt-8 mb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {trips &&
           trips.map((trip) => (
             <div
@@ -33,13 +33,13 @@ const TripsByLocation = ({ trips }) => {
               <div className="mb-3 card">
                 <h4 className="text-xl font-bold">{trip.dateOfTrip}</h4>
               </div>
-              <button className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-700">
-                CHECK IT OUT
+              <button className="px-4 py-2 mt-4 text-black bg-secondary rounded hover:bg-brand-yellow">
+                EXPLORE MORE
               </button>
             </div>
           ))}
-     </div>
-      </div> 
+      </div>
+    </div>
   );
 };
 

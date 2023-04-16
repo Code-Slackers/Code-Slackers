@@ -11,10 +11,12 @@ const AddLocation = () => {
         <div className="my-3 col-12 col-md-10">
           <div className="p-3 card space-y-6">
             <div className="flex justify-between items-center flex-wrap gap-4">
-              <h2 className="text-2xl ">New City. New Adventure.</h2>
+              <h2 className="text-2xl text-primary">
+                New City. New Adventure.
+              </h2>
               {location.pathname !== "/" && (
                 <button
-                  className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
+                  className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
                   onClick={() => navigate(-1)}
                 >
                   <ArrowLongLeftIcon className="w-5 h-5" />

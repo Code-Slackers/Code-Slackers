@@ -180,8 +180,11 @@ const AddTransportationForm = ({ locations }) => {
                 <option value="Ride Share">Ride Share</option>
                 <option value="Other">Other</option>
               </select>
-              <button className="mt-4 text-white btn btn-primary" type="submit">
-                Submit
+              <button
+                className="px-4 py-2 mt-4 text-lg text-white rounded-md bg-black hover:bg-primary"
+                type="submit"
+              >
+                SHARE WITH US
               </button>
             </div>
           </form>
