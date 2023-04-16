@@ -15,25 +15,25 @@ Building on agile development methodologies, we aligned on best practices to sto
 ## Acceptance Criteria
 
 IF someone visits the tripr site<br />
-THEN they are prompted to sign up or log in before interacting
+THEN they are prompted to sign up or log in before engaging
 
 IF a user selects one of the states on the homepage's map of the US<br />
 THEN they can view a list of the selected state's cities where other triprs have made travel plans or add a new city
 
 IF a user adds a new city<br />
-THEN they are able to specify the city's name and state and upload an image of that city
+THEN they can specify the city's name and state and upload an image of that city
 
 IF a user selects a listed city<br />
-THEN they can build their own trip to that city or check out trips planned by other triprs
+THEN they can share their own trip highlights to that city or check out highlights from other triprs
 
-IF a user builds their own trip<br />
-THEN they can add their own Food, Transporation, Things To Do & Lodging items
+IF a user shares their own trip<br />
+THEN they can add their own Food, Transportation, Things To Do & Lodging highlights
 
-IF a user checks out a past trip<br />
-THEN they'll have a pre-populated set of Food, Transporation, Things To Do & Lodging items they can update to another item from the site's database or add a new item
+IF a user explores another tripr's highlights<br />
+THEN they can access a pre-populated set of Food, Transportation, Things To Do & Lodging highlights they can update
 
-IF a user adds a new trip item<br />
-THEN they can add that trip item's details to the site's corresponding database
+IF a user adds a new trip highlight<br />
+THEN they can add that highlight's details to the site database
 
 ## Check It Out
 
