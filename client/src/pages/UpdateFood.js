@@ -7,7 +7,7 @@ const UpdateFood = () => {
     <main className="container px-4 mx-auto">
       <div className="flex flex-col items-center justify-center mt-8">
         <div className="w-full md:w-1/2">
-          <div className="px-6 py-4 text-white bg-blue-500">
+          <div className="px-6 py-4 text-white bg-primary">
             <h1 className="text-2xl font-bold">Update Food</h1>
           </div>
           <div className="px-6 py-8 bg-white rounded-lg shadow-lg">

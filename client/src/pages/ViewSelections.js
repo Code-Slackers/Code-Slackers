@@ -28,31 +28,30 @@ const ViewSelection = () => {
   const tripData = trip.data.trip || [];
 
   return (
-    <div
-      id={params.locationId}
-      className="max-w-screen-md py-6 mx-auto"
-    >
+    <div id={params.locationId} className="max-w-screen-md py-6 mx-auto">
       <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-      <h1 className="text-3xl font-bold ">
-        Your Trip to {data.location.city}, {data.location.state}
+        <h1 className="text-3xl font-bold ">
+          Your Trip to {data.location.city}, {data.location.state}
         </h1>
         {location.pathname !== "/" && (
-            <button
-              className="flex items-center gap-2 px-4 py-2 text-black transition-all rounded-lg bg-secondary hover:bg-brand-yellow hover:text-white "
-              onClick={() => navigate(-1)}
-            >
-              <ArrowLongLeftIcon className="w-5 h-5" />
-              Go Back
-            </button>
-          )}
+          <button
+            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
+            onClick={() => navigate(-1)}
+          >
+            <ArrowLongLeftIcon className="w-5 h-5" />
+            Back
+          </button>
+        )}
       </div>
-      <p className="font-bold">
-        Here's where you'll find all the key details for your trip.
-      </p>
-      <p>If you're building your own, start adding items to each category.</p>
+      <p className="font-bold">Here are all your trip highlights.</p>
       <p>
-        If you're checking out a past trip's items, feel free to update them.
-      </p> 
+        If you're sharing your own highlights, start adding one to each
+        category.
+      </p>
+      <p>
+        If you're checking out another tripr's highlights, feel free to update
+        them.
+      </p>
       <div>
         <h2 className="mt-8 text-xl font-bold">Travel Date:</h2>
         {trip.loading ? (

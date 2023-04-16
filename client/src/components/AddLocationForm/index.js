@@ -127,12 +127,16 @@ const AddLocationForm = ({ profileId }) => {
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
               </select>
-              <button className="btn btn-primary text-white mt-4" type="submit">
-                Submit
+              <button
+                className="btn bg-black hover:bg-primary text-white mt-4"
+                type="submit"
+              >
+                ADD CITY
               </button>
             </div>
           </form>
-          <div className="px-8 pb-6">
+          <div className="text-center">
+            <p>Got pics of this place? Add one of 'em to plus things up.</p>
             <div className="w-10 h-10">
               <img id="image" data-id=""></img>
             </div>

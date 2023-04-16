@@ -20,8 +20,11 @@ const CloudinaryImage = (props) => {
   };
 
   return (
-    <button className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-600" onClick={uploadImageWidget}>
-      Upload Image
+    <button
+      className="px-4 py-2 text-black bg-secondary rounded hover:bg-brand-yellow"
+      onClick={uploadImageWidget}
+    >
+      UPLOAD IMAGE
     </button>
   );
 };

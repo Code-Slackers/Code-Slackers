@@ -32,45 +32,55 @@ const ViewTripsByLocation = () => {
 
   if (!trips.length) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen">
-        <div className="text-3xl font-semibold text-gray-800">No Trips Yet</div>
-        <button
-          onClick={newTripHandler}
-          className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
-        >
-          BUILD YOUR OWN TRIP
-        </button>
+      <div className="container px-4 mx-auto mt-8">
+        <div className="text-2xl font-bold text-center">No Trips Yet</div>
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={newTripHandler}
+            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2"
+          >
+            SHARE YOUR OWN TRIP
+          </button>
+        </div>
       </div>
     );
-  } 
+  }
   return (
-    <div id={locationId} className="flex flex-col items-center py-4 max-w-screen-md mx-auto space-y-8">
+    <div
+      id={locationId}
+      className="flex flex-col items-center py-4 max-w-screen-md mx-auto space-y-8"
+    >
       <div className="flex justify-between items-center flex-wrap gap-4 w-full">
-      <h1 className="text-3xl font-semibold text-gray-800">
-        {city}, Here We Come
+        <h1 className="text-3xl font-semibold text-gray-800">
+          {city}, Here We Come
         </h1>
         {location.pathname !== "/" && (
-            <button
-              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
-              onClick={() => navigate(-1)}
-            >
-              <ArrowLongLeftIcon className="w-5 h-5" />
-              Go Back
-            </button>
-          )}
+          <button
+            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
+            onClick={() => navigate(-1)}
+          >
+            <ArrowLongLeftIcon className="w-5 h-5" />
+            Back
+          </button>
+        )}
       </div>
-      <div className="w-full">
+      <div className="w-full text-center">
+        <p>
+          Share your own trip highlights or check out other triprs' highlights
+          to get inspired.
+        </p>
         <button
           onClick={newTripHandler}
-          className="px-4 py-2 font-bold mb-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+          className="px-4 py-3 my-5 mb-4 text-white bg-black rounded-lg hover:bg-primary hover:text-white"
         >
-          BUILD YOUR OWN TRIP
+          SHARE YOUR OWN TRIP
         </button>
-        <p>
-          Looking for inspiration? Check out past trips below to make your own.
-        </p>
         <div>
-          {loading ? <div className="text-center text-lg font-medium">Loading...</div> : <TripsByLocation trips={trips} />}
+          {loading ? (
+            <div className="text-center text-lg font-medium">Loading...</div>
+          ) : (
+            <TripsByLocation trips={trips} />
+          )}
         </div>
       </div>
     </div>

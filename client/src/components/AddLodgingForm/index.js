@@ -230,14 +230,15 @@ const AddLodgingForm = ({ locations }) => {
                 <option value="*****">5</option>
               </select>
               <button
-                className="px-4 py-2 mt-4 text-lg text-white rounded-md bg-primary hover:bg-white hover:text-primary"
+                className="px-4 py-2 mt-4 text-lg text-white rounded-md bg-black hover:bg-primary"
                 type="submit"
               >
-                Submit
+                SHARE WITH US
               </button>
             </div>
           </form>
-          <div>
+          <div className="text-center">
+            <p>Got pics of this place? Add one of 'em to plus things up.</p>
             <div className="w-10 h-10">
               <img id="image" data-id=""></img>
             </div>

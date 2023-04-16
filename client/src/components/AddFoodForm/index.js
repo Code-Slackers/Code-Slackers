@@ -67,7 +67,7 @@ const AddFoodForm = ({ locations }) => {
   };
 
   return (
-    <div >
+    <div>
       {Auth.loggedIn() ? (
         <div className="card   max-w-[40rem] mx-auto">
           <form
@@ -223,12 +223,16 @@ const AddFoodForm = ({ locations }) => {
                 <option value="*****">5</option>
               </select>
 
-              <button className="mt-4 text-white btn btn-primary" type="submit">
-                Submit
+              <button
+                className="px-4 py-2 mt-4 text-lg text-white rounded-md bg-black hover:bg-primary"
+                type="submit"
+              >
+                SHARE WITH US
               </button>
             </div>
           </form>
-          <div>
+          <div className="text-center">
+            <p>Got pics of this place? Add one of 'em to plus things up.</p>
             <div className="w-10 h-10">
               <img id="image" data-id=""></img>
             </div>

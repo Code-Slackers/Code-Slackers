@@ -41,11 +41,15 @@ const FoodByState = ({ foods }) => {
           </div>
           {!food.images[0] ? null : (
             <div className="mt-3">
-              <img src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`} alt="food" className="object-cover w-full h-40 rounded-lg" />
+              <img
+                src={`https://res.cloudinary.com/drlulo3bd/image/upload/v1681491065/${food.images[0]}`}
+                alt="food"
+                className="object-cover w-full h-40 rounded-lg"
+              />
             </div>
           )}
           <button
-            className="inline-flex items-center justify-center w-full px-4 py-2 mt-3 text-base font-medium text-white bg-blue-500 border border-transparent rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="inline-flex items-center justify-center w-full px-4 py-2 mt-3 text-base text-white bg-black border border-transparent rounded-md hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             onClick={() => {
               addFoodToTrip(food._id);
             }}

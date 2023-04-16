@@ -53,16 +53,16 @@ const AddTripForm = ({ locations }) => {
   return (
     <div className="max-w-screen-md mx-auto space-y-8">
       <div className="flex justify-between items-center flex-wrap gap-4">
-      <h2 className=" text-center text-primary">Build Your Own Trip</h2>
-      {location.pathname !== "/" && (
-            <button
-              className="px-4 py-2 text-black bg-secondary rounded-lg hover:bg-brand-yellow transition-all hover:text-white flex items-center gap-2 "
-              onClick={() => navigate(-1)}
-            >
-              <ArrowLongLeftIcon className="w-5 h-5" />
-              Go Back
-            </button>
-          )}
+        <h2 className=" text-center text-primary">Share Your Own Trip</h2>
+        {location.pathname !== "/" && (
+          <button
+            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
+            onClick={() => navigate(-1)}
+          >
+            <ArrowLongLeftIcon className="w-5 h-5" />
+            Back
+          </button>
+        )}
       </div>
       {Auth.loggedIn() ? (
         <div className="card border  ">
@@ -93,8 +93,11 @@ const AddTripForm = ({ locations }) => {
                 onChange={handleChange}
                 required
               />
-              <button className="mt-4 text-white btn btn-primary" type="submit">
-                Submit
+              <button
+                className="mt-4 text-white btn bg-black hover:bg-primary"
+                type="submit"
+              >
+                GET STARTED
               </button>
             </div>
           </form>
