@@ -39,7 +39,7 @@ const ViewTripsByLocation = () => {
             onClick={newTripHandler}
             className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2"
           >
-            BUILD YOUR OWN TRIP
+            SHARE YOUR OWN TRIP
           </button>
         </div>
       </div>
@@ -66,14 +66,14 @@ const ViewTripsByLocation = () => {
       </div>
       <div className="w-full text-center">
         <p>
-          Make your own travel plans or check out other triprs' plans to get
-          inspired.
+          Share your own trip highlights or check out other triprs' highlights
+          to get inspired.
         </p>
         <button
           onClick={newTripHandler}
           className="px-4 py-3 my-5 mb-4 text-white bg-black rounded-lg hover:bg-primary hover:text-white"
         >
-          BUILD YOUR OWN TRIP
+          SHARE YOUR OWN TRIP
         </button>
         <div>
           {loading ? (

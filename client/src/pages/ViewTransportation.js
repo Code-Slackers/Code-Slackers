@@ -26,59 +26,59 @@ const ViewTransportation = () => {
     window.location.assign(`/addTransportation`);
   };
 
-  if (!transportations.length) {
-    return (
-      <div className="max-w-screen-md mx-auto">
-        <h3 className="mb-4 text-3xl font-bold text-center">
-          No Transportation Yet
-        </h3>
-        <button
-          className="px-4 py-2 text-white bg-black rounded hover:bg-primary"
-          onClick={addTransportationHandler}
-        >
-          ADD TRANSPORTATION
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <div id={locationId} className="max-w-screen-md mx-auto py-6">
-      <div className="flex justify-between items-center flex-wrap gap-4 w-full mb-8 ">
-        <h1 className="text-3xl font-bold">
-          Transportation in {location.city}
-        </h1>
-        {locati.pathname !== "/" && (
-          <button
-            className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
-            onClick={() => navigate(-1)}
-          >
-            <ArrowLongLeftIcon className="w-5 h-5" />
-            Back
-          </button>
-        )}
+    <main className="min-h-screen">
+      <div className=" py-12 mx-auto max-w-screen-md ">
+        <div className=" ">
+          <div className=" py-5   flex justify-between items-center flex-wrap gap-4 w-full">
+            <h1 className="text-3xl font-bold text-gray-800">
+              Transportation in {location.city}
+            </h1>
+            {locati.pathname !== "/" && (
+              <button
+                className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
+                onClick={() => navigate(-1)}
+              >
+                <ArrowLongLeftIcon className="w-5 h-5" />
+                Back
+              </button>
+            )}
+          </div>
+          <div className="px-4 py-5  sm:p-0">
+            {loading ? (
+              <div className="text-center text-lg font-medium">Loading...</div>
+            ) : transportations.length ? (
+              <>
+                <TransportationByState transportations={transportations} />
+                <div className="my-12 text-center">
+                  <p>Have something in mind you don't see here?</p>
+                </div>
+                <div className="flex items-center justify-center mt-4">
+                  <button
+                    className="px-4 py-2 text-black bg-secondary rounded hover:bg-brand-yellow"
+                    onClick={addTransportationHandler}
+                  >
+                    ADD TRANSPORTATION
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="flex flex-col items-center py-12 px-4">
+                <h3 className="mb-4 text-xl font-bold text-gray-800">
+                  No Transportation Yet
+                </h3>
+                <button
+                  className="px-4 py-2 text-white bg-black rounded hover:bg-primary"
+                  onClick={addTransportationHandler}
+                >
+                  ADD TRANSPORTATION
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-      <div className="max-w-screen-md mx-auto">
-        <div>
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <TransportationByState transportations={transportations} />
-          )}
-        </div>
-        <div className="my-8 text-center">
-          <p>Have something in mind you don't see here?</p>
-        </div>
-        <div className="flex items-center justify-center mt-4">
-          <button
-            className="px-4 py-2 text-black bg-secondary rounded-md hover:bg-brand-yellow"
-            onClick={addTransportationHandler}
-          >
-            ADD TRANSPORTATION
-          </button>
-        </div>
-      </div>
-    </div>
+    </main>
   );
 };
 

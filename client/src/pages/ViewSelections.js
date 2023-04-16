@@ -43,12 +43,14 @@ const ViewSelection = () => {
           </button>
         )}
       </div>
-      <p className="font-bold">
-        Here's where you'll find all the key details for your trip.
-      </p>
-      <p>If you're building your own, start adding items to each category.</p>
+      <p className="font-bold">Here are all your trip highlights.</p>
       <p>
-        If you're checking out a past trip's items, feel free to update them.
+        If you're sharing your own highlights, start adding one to each
+        category.
+      </p>
+      <p>
+        If you're checking out another tripr's highlights, feel free to update
+        them.
       </p>
       <div>
         <h2 className="mt-8 text-xl font-bold">Travel Date:</h2>

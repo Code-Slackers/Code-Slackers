@@ -53,7 +53,7 @@ const AddTripForm = ({ locations }) => {
   return (
     <div className="max-w-screen-md mx-auto space-y-8">
       <div className="flex justify-between items-center flex-wrap gap-4">
-        <h2 className=" text-center text-primary">Build Your Own Trip</h2>
+        <h2 className=" text-center text-primary">Share Your Own Trip</h2>
         {location.pathname !== "/" && (
           <button
             className="px-4 py-2 text-white bg-black rounded-lg hover:bg-primary transition-all hover:text-white flex items-center gap-2 "
