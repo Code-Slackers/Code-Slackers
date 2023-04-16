@@ -39,4 +39,4 @@ THEN they can add that highlight's details to the site database
 
 ![](SiteScreenshot.png)
 
-[Visit tripr.com today](INSERT HEROKU LINK)
+[Visit tripr.com today](https://tripr.herokuapp.com)
